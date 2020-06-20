@@ -5,7 +5,7 @@ import { Provider } from 'mobx-react';
 
 import { createStore } from './lib/Store';
 import RootNavigation from './navigation/RootNavigation';
-import { getLocaleContext} from './lib/I18n';
+import { getLocaleContext } from './lib/I18n';
 
 getLocaleContext();
 
@@ -14,7 +14,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-         <NavigationContainer>
+        <NavigationContainer>
           <>
             <RootNavigation context={() => this.context} />
           </>

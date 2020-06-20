@@ -15,11 +15,10 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
     'comma-dangle': 'off',
-    'react/jsx-props-no-spreading': 'off'
+    'react/jsx-props-no-spreading': 'off',
+    'react/prefer-stateless-function': 'off',
+    'max-len': 'warn'
   },
-  plugins: [
-    '@babel/plugin-proposal-optional-chaining'
-  ],
   globals: {
     fetch: false,
   },
