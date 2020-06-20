@@ -62,7 +62,7 @@ class Home extends React.Component {
     const { store } = this.props;
 
     return (
-        <View>
+        <View testID="home">
           <StatusBar barStyle="dark-content" />
           <SafeAreaView>
             <ScrollView
@@ -78,6 +78,7 @@ class Home extends React.Component {
               <View style={styles.body}>
                 <View style={styles.sectionContainer}>
                 <Button
+                testID="logout"
                   title="Logout"
                   onPress={() => store.accessToken = null}
                 />

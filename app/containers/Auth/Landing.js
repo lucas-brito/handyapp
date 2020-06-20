@@ -16,7 +16,7 @@ class AuthLanding extends React.Component {
     const { store } = this.props;
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View testID="landing" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={{ marginRight: 8 }}>
               <Icon name={'comments'} />
@@ -24,6 +24,7 @@ class AuthLanding extends React.Component {
             <Text>{__('Auth Landing')}</Text>
           </View>
         <Button
+          testID="login"
           title={__('Login')}
           onPress={() => store.accessToken = 'Tem token'}
         />

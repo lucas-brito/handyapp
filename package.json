@@ -8,7 +8,11 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint *.js **/*.js",
-    "translate": "node i18n.extract.js"
+    "translate": "node i18n.extract.js",
+    "detox:build:android": "detox build --configuration android",
+    "detox:test:android": "detox test --configuration android",
+    "detox:build:ios": "detox build --configuration ios.debug",
+    "detox:test:ios": "detox test --configuration ios.debug"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -36,9 +40,11 @@
     "@babel/runtime": "7.10.2",
     "@react-native-community/eslint-config": "2.0.0",
     "babel-jest": "26.0.1",
+    "detox": "16.8.2",
     "eslint": "7.2.0",
     "i18n-extract": "0.6.3",
     "jest": "26.0.1",
+    "jest-circus": "26.0.1",
     "metro-react-native-babel-preset": "0.59.0",
     "react-test-renderer": "16.11.0"
   },
