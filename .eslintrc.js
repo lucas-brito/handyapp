@@ -4,6 +4,12 @@ module.exports = {
   env: {
     jest: true,
   },
+  parserOptions: {
+    ecmaFeatures: {
+      legacyDecorators: true,
+      experimentalDecorators: true
+    }
+  },
   rules: {
     'no-use-before-define': 'off',
     'react/jsx-filename-extension': 'off',

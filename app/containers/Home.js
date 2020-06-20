@@ -6,6 +6,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
 import {
   Header,
@@ -14,6 +15,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { inject, observer } from 'mobx-react';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -54,8 +56,11 @@ const styles = StyleSheet.create({
   },
 });
 
+@inject('store') @observer
 export default class Home extends React.Component {
   render() {
+    const { store } = this.props;
+
     return (
         <View>
           <StatusBar barStyle="dark-content" />
@@ -71,6 +76,12 @@ export default class Home extends React.Component {
                 </View>
               )}
               <View style={styles.body}>
+                <View style={styles.sectionContainer}>
+                <Button
+                  title="Logout"
+                  onPress={() => store.accessToken = null}
+                />
+                </View>
                 <View style={styles.sectionContainer}>
                   <Text style={styles.sectionTitle}>Step One</Text>
                   <Text style={styles.sectionDescription}>
