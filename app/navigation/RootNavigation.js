@@ -7,8 +7,8 @@ import AuthStackNavigation from './AuthStackNavigation';
 
 const Stack = createStackNavigator();
 
-@inject('store') @observer
-export default class RootNavigation extends React.Component {
+export default @inject('store') @observer
+class RootNavigation extends React.Component {
   render() {
     const { store } = this.props;
 

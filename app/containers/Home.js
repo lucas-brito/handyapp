@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
   },
 });
 
-@inject('store') @observer
-export default class Home extends React.Component {
+export default @inject('store') @observer
+class Home extends React.Component {
   render() {
     const { store } = this.props;
 

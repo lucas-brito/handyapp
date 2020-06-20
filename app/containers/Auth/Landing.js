@@ -4,18 +4,20 @@ import {
     Text,
     Button
   } from 'react-native';
-  import { inject, observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 
-  @inject('store') @observer
-export default class AuthLanding extends React.Component {
+import { __ } from '../../lib/I18n';
+
+export default @inject('store') @observer
+class AuthLanding extends React.Component {
   render() {
     const { store } = this.props;
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Auth Landing</Text>
+        <Text>{__('Auth Landing')}</Text>
         <Button
-          title="Login"
+          title={__('Login')}
           onPress={() => store.accessToken = 'Tem token'}
         />
       </View>
