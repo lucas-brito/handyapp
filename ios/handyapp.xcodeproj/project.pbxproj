@@ -18,6 +18,9 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* handyappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* handyappTests.m */; };
 		36A89B472B4DF02F8D5A09B4 /* libPods-handyapp-handyappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B08574C46F8B8C2E524CDDBC /* libPods-handyapp-handyappTests.a */; };
+		A08EC0DF249E95FE0040C224 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08EC0DC249E95FE0040C224 /* FontAwesome5_Brands.ttf */; };
+		A08EC0E0249E95FE0040C224 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08EC0DD249E95FE0040C224 /* FontAwesome5_Solid.ttf */; };
+		A08EC0E1249E95FE0040C224 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08EC0DE249E95FE0040C224 /* FontAwesome5_Regular.ttf */; };
 		E0DC74E153110E180025114C /* libPods-handyapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1DF6675200C515C50C94F2 /* libPods-handyapp-tvOSTests.a */; };
 		F2ADC777D8751B1EE067B75F /* libPods-handyapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C18A6FDBD157C383B166FD /* libPods-handyapp-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,9 @@
 		7C7913012D7604A890DFBE65 /* Pods-handyapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handyapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-handyapp-tvOS/Pods-handyapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		934AB766724FCBEF48746B25 /* Pods-handyapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handyapp.release.xcconfig"; path = "Target Support Files/Pods-handyapp/Pods-handyapp.release.xcconfig"; sourceTree = "<group>"; };
 		9A9EF5C0227930510C089D6E /* Pods-handyapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handyapp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-handyapp-tvOS/Pods-handyapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A08EC0DC249E95FE0040C224 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		A08EC0DD249E95FE0040C224 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		A08EC0DE249E95FE0040C224 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		A368F9307B4168532D455A21 /* Pods-handyapp-handyappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handyapp-handyappTests.release.xcconfig"; path = "Target Support Files/Pods-handyapp-handyappTests/Pods-handyapp-handyappTests.release.xcconfig"; sourceTree = "<group>"; };
 		B08574C46F8B8C2E524CDDBC /* libPods-handyapp-handyappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-handyapp-handyappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA7875529793A7AE040FF18 /* Pods-handyapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handyapp.debug.xcconfig"; path = "Target Support Files/Pods-handyapp/Pods-handyapp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		13B07FAE1A68108700A75B9A /* handyapp */ = {
 			isa = PBXGroup;
 			children = (
+				A08EC0D2249E95370040C224 /* Fonts */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -182,6 +189,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A08EC0D2249E95370040C224 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A08EC0DC249E95FE0040C224 /* FontAwesome5_Brands.ttf */,
+				A08EC0DE249E95FE0040C224 /* FontAwesome5_Regular.ttf */,
+				A08EC0DD249E95FE0040C224 /* FontAwesome5_Solid.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		EF53A495EE755A6F9BB5B17C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +211,6 @@
 				39A4F447610CE1E865FB60DF /* Pods-handyapp-tvOSTests.debug.xcconfig */,
 				467896C3FDCFE46EFEB740EA /* Pods-handyapp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -338,6 +354,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08EC0DF249E95FE0040C224 /* FontAwesome5_Brands.ttf in Resources */,
+				A08EC0E0249E95FE0040C224 /* FontAwesome5_Solid.ttf in Resources */,
+				A08EC0E1249E95FE0040C224 /* FontAwesome5_Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
