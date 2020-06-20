@@ -18,10 +18,12 @@
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.5",
-    "react-native-screens": "^2.8.0"
+    "react-native-screens": "^2.8.0",
+    "react-navigation-props-mapper": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@babel/runtime": "^7.10.2",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.0.1",

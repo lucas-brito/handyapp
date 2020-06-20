@@ -9,7 +9,11 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
     'comma-dangle': 'off',
+    'react/jsx-props-no-spreading': 'off'
   },
+  plugins: [
+    '@babel/plugin-proposal-optional-chaining'
+  ],
   globals: {
     fetch: false,
   },
