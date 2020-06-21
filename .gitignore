@@ -26,6 +26,8 @@ ios/Pods
 
 ## User settings
 xcuserdata/
+xcuserdata/**
+**/xcuserdata
 
 # Gradle
 /build/
