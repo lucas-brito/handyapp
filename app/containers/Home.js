@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  StatusBar,
   Button
 } from 'react-native';
 import {
@@ -17,9 +15,13 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { inject, observer } from 'mobx-react';
 
-import { LocalStorage } from '../lib/Store';
+import Drawer from '../components/Drawer';
 
-const styles = StyleSheet.create({
+import { LocalStorage } from '../lib/Store';
+import { __ } from '../lib/I18n';
+import Theme from '../lib/Theme';
+
+const styles = Theme.extend({
   scrollView: {
     backgroundColor: Colors.lighter,
   },
@@ -60,6 +62,16 @@ const styles = StyleSheet.create({
 
 export default @inject('store') @observer
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const { store } = props;
+
+    store.drawer = {
+      title: __('Home')
+    };
+  }
+
   logout = async () => {
     const { store } = this.props;
 
@@ -68,61 +80,64 @@ class Home extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <View testID="home">
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}
-          >
-            <Header />
-            {global.HermesInternal == null ? null : (
-              <View style={styles.engine}>
-                <Text style={styles.footer}>Engine: Hermes</Text>
-              </View>
-            )}
-            <View style={styles.body}>
-              <View style={styles.sectionContainer}>
-                <Button
-                  testID="logout"
-                  title="Logout"
-                  onPress={this.logout}
-                />
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Step One</Text>
-                <Text style={styles.sectionDescription}>
-                  Edit
-                  {' '}
-                  <Text style={styles.highlight}>App.js</Text>
-                  {' '}
-                  to change this
-                  screen and then come back to see your edits.
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>See Your Changes</Text>
-                <Text style={styles.sectionDescription}>
-                  <ReloadInstructions />
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Debug</Text>
-                <Text style={styles.sectionDescription}>
-                  <DebugInstructions />
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Learn More</Text>
-                <Text style={styles.sectionDescription}>
-                  Read the docs to discover what to do next:
-                </Text>
-              </View>
-              <LearnMoreLinks />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}
+        >
+          <Header />
+          {global.HermesInternal == null ? null : (
+            <View style={styles.engine}>
+              <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
-          </ScrollView>
-        </SafeAreaView>
+          )}
+          <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Button
+                testID="logout"
+                title="Logout"
+                onPress={this.logout}
+              />
+              <Button
+                title="Go to User Profile"
+                onPress={() => { navigation.navigate('UserProfile'); }}
+              />
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionDescription}>
+                Edit
+                {' '}
+                <Text style={styles.highlight}>App.js</Text>
+                {' '}
+                to change this
+                screen and then come back to see your edits.
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>See Your Changes</Text>
+              <Text style={styles.sectionDescription}>
+                <ReloadInstructions />
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionDescription}>
+                <DebugInstructions />
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Learn More</Text>
+              <Text style={styles.sectionDescription}>
+                Read the docs to discover what to do next:
+              </Text>
+            </View>
+            <LearnMoreLinks />
+          </View>
+        </ScrollView>
       </View>
     );
   }

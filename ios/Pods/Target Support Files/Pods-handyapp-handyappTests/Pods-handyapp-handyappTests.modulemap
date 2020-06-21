@@ -1,6 +1,0 @@
-module Pods_handyapp_handyappTests {
-  umbrella header "Pods-handyapp-handyappTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
