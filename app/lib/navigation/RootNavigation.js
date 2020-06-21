@@ -14,21 +14,25 @@ class RootNavigation extends React.Component {
 
     return (
       <Stack.Navigator
-        initialRouteName={!!store.accessToken ? 'Main' : 'Auth'}
+        initialRouteName={store.accessToken ? 'Main' : 'Auth'}
       >
         {
-          !!store.accessToken && <Stack.Screen
+          !!store.accessToken && (
+          <Stack.Screen
             name="Main"
             component={MainStackNavigation}
             options={{ headerShown: false }}
           />
+          )
         }
         {
-          !store.accessToken && <Stack.Screen
+          !store.accessToken && (
+          <Stack.Screen
             name="Auth"
             component={AuthStackNavigation}
             options={{ headerShown: false }}
           />
+          )
         }
       </Stack.Navigator>
     );

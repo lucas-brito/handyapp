@@ -18,9 +18,9 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* handyappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* handyappTests.m */; };
 		36A89B472B4DF02F8D5A09B4 /* libPods-handyapp-handyappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B08574C46F8B8C2E524CDDBC /* libPods-handyapp-handyappTests.a */; };
-		A08EC0DF249E95FE0040C224 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08EC0DC249E95FE0040C224 /* FontAwesome5_Brands.ttf */; };
-		A08EC0E0249E95FE0040C224 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08EC0DD249E95FE0040C224 /* FontAwesome5_Solid.ttf */; };
-		A08EC0E1249E95FE0040C224 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08EC0DE249E95FE0040C224 /* FontAwesome5_Regular.ttf */; };
+		A08EC0DF249E95FE0040C224 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		A08EC0E0249E95FE0040C224 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		A08EC0E1249E95FE0040C224 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		E0DC74E153110E180025114C /* libPods-handyapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1DF6675200C515C50C94F2 /* libPods-handyapp-tvOSTests.a */; };
 		F2ADC777D8751B1EE067B75F /* libPods-handyapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C18A6FDBD157C383B166FD /* libPods-handyapp-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -189,9 +189,6 @@
 		A08EC0D2249E95370040C224 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				A08EC0DC249E95FE0040C224 /* FontAwesome5_Brands.ttf */,
-				A08EC0DE249E95FE0040C224 /* FontAwesome5_Regular.ttf */,
-				A08EC0DD249E95FE0040C224 /* FontAwesome5_Solid.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -353,9 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A08EC0DF249E95FE0040C224 /* FontAwesome5_Brands.ttf in Resources */,
-				A08EC0E0249E95FE0040C224 /* FontAwesome5_Solid.ttf in Resources */,
-				A08EC0E1249E95FE0040C224 /* FontAwesome5_Regular.ttf in Resources */,
+				A08EC0DF249E95FE0040C224 /* BuildFile in Resources */,
+				A08EC0E0249E95FE0040C224 /* BuildFile in Resources */,
+				A08EC0E1249E95FE0040C224 /* BuildFile in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

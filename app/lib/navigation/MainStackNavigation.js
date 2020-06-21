@@ -2,20 +2,19 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { withMappedNavigationParams } from 'react-navigation-props-mapper';
 
-import Landing from '../containers/Auth/Landing';
+import Home from '../../containers/Home';
 
-export default class AuthStackNavigation extends React.Component {
-
+export default class MainStackNavigation extends React.Component {
   render() {
     const Stack = createStackNavigator();
 
     return (
       <Stack.Navigator
-        initialRouteName="Landing"
+        initialRouteName="Home"
       >
         <Stack.Screen
-          name="Landing"
-          component={withMappedNavigationParams()(Landing)}
+          name="Home"
+          component={withMappedNavigationParams()(Home)}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

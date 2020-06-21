@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Example', () => {
   beforeEach(async () => {
     await device.reloadReactNative();
@@ -13,9 +14,6 @@ describe('Example', () => {
   });
 
   it('should logout', async () => {
-    await element(by.id('login')).tap();
-    await expect(element(by.id('home'))).toBeVisible();
-
     await element(by.id('logout')).tap();
     await expect(element(by.id('landing'))).toBeVisible();
   });
