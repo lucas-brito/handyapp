@@ -24,6 +24,9 @@ ios/Pods
 *.dSYM.zip
 *.dSYM
 
+## User settings
+xcuserdata/
+
 # Gradle
 /build/
 /RNTester/android/app/build/
