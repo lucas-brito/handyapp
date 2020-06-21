@@ -4,247 +4,247 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CocoaAsyncSocket.xcscheme</key>
+		<key>CocoaAsyncSocket.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CocoaLibEvent.xcscheme</key>
+		<key>CocoaLibEvent.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DoubleConversion.xcscheme</key>
+		<key>DoubleConversion.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBLazyVector.xcscheme</key>
+		<key>FBLazyVector.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBReactNativeSpec.xcscheme</key>
+		<key>FBReactNativeSpec.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-DoubleConversion.xcscheme</key>
+		<key>Flipper-DoubleConversion.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-Folly.xcscheme</key>
+		<key>Flipper-Folly.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-Glog.xcscheme</key>
+		<key>Flipper-Glog.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-PeerTalk.xcscheme</key>
+		<key>Flipper-PeerTalk.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-RSocket.xcscheme</key>
+		<key>Flipper-RSocket.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper.xcscheme</key>
+		<key>Flipper.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FlipperKit.xcscheme</key>
+		<key>FlipperKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Folly.xcscheme</key>
+		<key>Folly.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>OpenSSL-Universal.xcscheme</key>
+		<key>OpenSSL-Universal.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-handyapp-handyappTests.xcscheme</key>
+		<key>Pods-handyapp-handyappTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-handyapp-tvOS.xcscheme</key>
+		<key>Pods-handyapp-tvOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-handyapp-tvOSTests.xcscheme</key>
+		<key>Pods-handyapp-tvOSTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-handyapp.xcscheme</key>
+		<key>Pods-handyapp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RCTRequired.xcscheme</key>
+		<key>RCTRequired.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RCTTypeSafety.xcscheme</key>
+		<key>RCTTypeSafety.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNCAsyncStorage.xcscheme</key>
+		<key>RNCAsyncStorage.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNCMaskedView.xcscheme</key>
+		<key>RNCMaskedView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNGestureHandler.xcscheme</key>
+		<key>RNGestureHandler.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNLocalize.xcscheme</key>
+		<key>RNLocalize.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNReanimated.xcscheme</key>
+		<key>RNReanimated.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNScreens.xcscheme</key>
+		<key>RNScreens.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNVectorIcons.xcscheme</key>
+		<key>RNVectorIcons.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-Core.xcscheme</key>
+		<key>React-Core.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-CoreModules.xcscheme</key>
+		<key>React-CoreModules.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTActionSheet.xcscheme</key>
+		<key>React-RCTActionSheet.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTAnimation.xcscheme</key>
+		<key>React-RCTAnimation.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTBlob.xcscheme</key>
+		<key>React-RCTBlob.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTImage.xcscheme</key>
+		<key>React-RCTImage.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTLinking.xcscheme</key>
+		<key>React-RCTLinking.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTNetwork.xcscheme</key>
+		<key>React-RCTNetwork.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTSettings.xcscheme</key>
+		<key>React-RCTSettings.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTText.xcscheme</key>
+		<key>React-RCTText.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-RCTVibration.xcscheme</key>
+		<key>React-RCTVibration.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-cxxreact.xcscheme</key>
+		<key>React-cxxreact.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-jsi.xcscheme</key>
+		<key>React-jsi.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-jsiexecutor.xcscheme</key>
+		<key>React-jsiexecutor.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-jsinspector.xcscheme</key>
+		<key>React-jsinspector.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React.xcscheme</key>
+		<key>React.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ReactCommon.xcscheme</key>
+		<key>ReactCommon.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Yoga.xcscheme</key>
+		<key>Yoga.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>YogaKit.xcscheme</key>
+		<key>YogaKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>boost-for-react-native.xcscheme</key>
+		<key>boost-for-react-native.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>glog.xcscheme</key>
+		<key>glog.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>react-native-safe-area-context.xcscheme</key>
+		<key>react-native-safe-area-context.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
