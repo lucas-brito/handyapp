@@ -1,6 +1,0 @@
-module Pods_handyapp {
-  umbrella header "Pods-handyapp-umbrella.h"
-
-  export *
-  module * { export * }
-}
