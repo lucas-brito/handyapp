@@ -15,56 +15,63 @@ const defaults = {
     fontWeight: '400',
     fontSize: 18
   },
-
-  input: {
-    height: 40,
-    padding: 4,
-    paddingLeft: 8,
-    paddingRight: 8,
-    backgroundColor: '#fff',
-    borderRadius: 6,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f1f3f5'
-  },
   button: {
     padding: 14,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+    backgroundColor: '#f1f3f5',
+    borderRadius: 6
+  },
+  roundedButton: {
     backgroundColor: '#fff',
     borderRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#e9ecef',
-    marginBottom: 8
+    borderColor: '#e9ecef'
   },
-  grayishButton: {
-    padding: 16,
+  labelButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    marginBottom: 0,
+    marginRight: 8,
+    backgroundColor: '#fff',
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#e9ecef'
+  },
+  labelButtonSelected: {
+    backgroundColor: '#343F4B',
+    borderRadius: 25,
+    borderColor: '#f1f3f5'
+  },
+  labelButtonTextSelected: {
+    color: '#fff'
+  },
+  text: {
+    fontSize: 14,
+    color: '#969FAA'
+  },
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    marginBottom: 8,
     flexDirection: 'row',
-    backgroundColor: '#f1f3f5',
-    borderRadius: 6,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 8
+    alignItems: 'center'
   },
-  warningText: {
-    fontSize: 16,
-    color: '#F03E3E',
-  },
-  infoText: {
-    fontSize: 16,
+  sectionTitleText: {
     fontWeight: 'bold',
-    color: '#0080FF',
-  },
-  buttonText: {
     fontSize: 16
   },
-  formField: {
-    margin: 16
-  },
-  icon: {
-    marginRight: 8,
-    textAlign: 'center'
-  },
+  item: {
+    flexDirection: 'row',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f1f3f5',
+  }
 };
 
 exports.hairlineWidth = StyleSheet.hairlineWidth;

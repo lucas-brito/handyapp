@@ -64,7 +64,7 @@ export default class App extends React.Component {
             loaded
               ? (
                 <Drawer>
-                  <NavigationContainer onStateChange={this.onNavigationStateChange}>
+                  <NavigationContainer ref={(c) => { this.navigation = c; }} onStateChange={this.onNavigationStateChange}>
                     <RootNavigation context={() => this.context} />
                   </NavigationContainer>
                 </Drawer>

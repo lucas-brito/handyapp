@@ -10,6 +10,7 @@
     "lint": "eslint app/*.js",
     "lint:tests": "eslint test/**/*.js",
     "translate": "node i18n.extract.js",
+    "build:android": "cd android && ./gradlew assembleRelease && open app/build/outputs/apk",
     "detox:build:android": "detox build --configuration android.debug",
     "detox:test:android": "detox test --configuration android.debug",
     "detox:build:ios": "detox build --configuration ios.debug",

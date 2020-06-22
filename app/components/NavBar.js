@@ -18,7 +18,7 @@ export default class NavBar extends React.Component {
     const { left, center, right } = this.props;
 
     return (
-      <View style={{ height: 64 }}>
+      <View style={{ height: 64, borderBottomColor: '#e9ecef', borderBottomWidth: 1 }}>
         <View style={[styles.container, styles.navContainer]}>
           <View style={{ width: 48 }}>
             {left}
@@ -27,7 +27,7 @@ export default class NavBar extends React.Component {
             <View>
               {center}
             </View>
-            <View>
+            <View style={{ width: 48 }}>
               {right}
             </View>
           </View>

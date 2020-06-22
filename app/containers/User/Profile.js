@@ -15,10 +15,12 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
-    const { store } = props;
+    const { store, navigation } = props;
 
     store.drawer = {
-      title: __('User Profile')
+      title: __('User Profile'),
+      type: 'back',
+      navigation
     };
   }
 

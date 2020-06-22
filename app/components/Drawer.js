@@ -30,12 +30,15 @@ class DrawerComponent extends React.Component {
     this.drawer.open();
   };
 
+  goBack = () => {
+    const { store } = this.props;
+    const { navigation } = store.drawer;
+
+    navigation.goBack();
+  }
+
   render() {
-    const { children, store } = this.props;
-
-    if (!store.drawer) return children;
-
-    const { title } = store.drawer;
+    const { store, children } = this.props;
 
     return (
       <Drawer
@@ -51,28 +54,42 @@ class DrawerComponent extends React.Component {
         tapToClose
         openDrawerOffset={(viewport) => viewport.width - 300} // 20% gap on the right side of drawer
         panCloseMask={0.2}
-        closedDrawerOffset={-3}
+        closedDrawerOffset={0}
         styles={drawerStyles}
         tweenHandler={(ratio) => ({
           main: { opacity: (2 - ratio) / 2 }
         })}
       >
         <SafeAreaView style={{ height: '100%' }}>
-          <NavBar
-            left={(
-              <TouchableOpacity
-                style={styles.center}
-                onPress={this.openControlPanel}
-              >
-                <Icon name="bars" />
-              </TouchableOpacity>
-              )}
-            center={!!title && (
-              <View style={styles.center}>
-                <Text style={styles.navBarTitle}>{title}</Text>
-              </View>
-            )}
-          />
+          {
+            !!store.drawer && (
+              <NavBar
+                left={store.drawer.type
+                  ? (
+                    <TouchableOpacity
+                      style={styles.center}
+                      onPress={store.drawer.onPress || this.goBack}
+                    >
+                      <Icon name={store.drawer.type === 'back' ? 'arrow-left' : 'times'} />
+                    </TouchableOpacity>
+                  )
+                  : (
+                    <TouchableOpacity
+                      style={styles.center}
+                      onPress={this.openControlPanel}
+                    >
+                      <Icon name="bars" />
+                    </TouchableOpacity>
+                  )}
+                center={!!store.drawer.title && (
+                <View style={styles.center}>
+                  <Text style={styles.navBarTitle}>{store.drawer.title}</Text>
+                </View>
+                )}
+                right={store.drawer.right}
+              />
+            )
+          }
           {children}
         </SafeAreaView>
 

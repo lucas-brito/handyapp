@@ -1,63 +1,25 @@
 import React from 'react';
 import {
-  StyleSheet,
   ScrollView,
   View,
-  Text,
-  Button
+  Text
 } from 'react-native';
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import { inject, observer } from 'mobx-react';
 
-import Drawer from '../components/Drawer';
-
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { LocalStorage } from '../lib/Store';
 import { __ } from '../lib/I18n';
 import Theme from '../lib/Theme';
 
 const styles = Theme.extend({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  buttonContainer: {
+    backgroundColor: '#343F4B'
+  }
 });
 
 export default @inject('store') @observer
@@ -65,10 +27,11 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
 
-    const { store } = props;
+    const { store, navigation } = props;
 
     store.drawer = {
-      title: __('Home')
+      title: __('Home'),
+      navigation
     };
   }
 
@@ -79,63 +42,39 @@ class Home extends React.Component {
     store.accessToken = null;
   }
 
-  render() {
+  selectServiceCategory = (category) => {
     const { navigation } = this.props;
 
+    navigation.navigate('ProvidersList', {
+      category
+    });
+  }
+
+  render() {
+    const serviceCategories = [
+      { category: 'cleaning', name: __('Cleaning') },
+      { category: 'gardening', name: __('Gardening') },
+      { category: 'pumbling', name: __('Pumbling') },
+      { category: 'electricity', name: __('Electricity') },
+      { category: 'painting', name: __('Painting') },
+    ];
+
     return (
-      <View testID="home">
+      <View testID="Home" style={styles.container}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
         >
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Button
-                testID="logout"
-                title="Logout"
-                onPress={this.logout}
-              />
-              <Button
-                title="Go to User Profile"
-                onPress={() => { navigation.navigate('UserProfile'); }}
-              />
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit
-                {' '}
-                <Text style={styles.highlight}>App.js</Text>
-                {' '}
-                to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+          <View style={styles.sectionContainer}>
+            <Text style={styles.text}>Select the type of service you would like to search for. Then select the location where the service will be performed</Text>
+          </View>
+          <View style={styles.sectionContainer}>
+            {
+              serviceCategories.map((service) => (
+                <TouchableOpacity key={service.category} style={[styles.button, styles.buttonContainer]} onPress={() => this.selectServiceCategory(service.category)}>
+                  <Text style={styles.buttonText}>{service.name.toUpperCase()}</Text>
+                </TouchableOpacity>
+              ))
+            }
           </View>
         </ScrollView>
       </View>
