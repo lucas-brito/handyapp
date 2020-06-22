@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View,
   Text,
-  Button
+  Button,
+  SafeAreaView
 } from 'react-native';
 import { inject, observer } from 'mobx-react';
 
@@ -13,6 +14,14 @@ import { LocalStorage } from '../../lib/Store';
 
 export default @inject('store') @observer
 class AuthLanding extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const { store } = props;
+
+    store.drawer = null;
+  }
+
   login = async () => {
     const { store } = this.props;
 
@@ -22,7 +31,7 @@ class AuthLanding extends React.Component {
 
   render() {
     return (
-      <View testID="landing" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <SafeAreaView testID="landing" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ marginRight: 8 }}>
             <Icon name="comments" />
@@ -34,7 +43,7 @@ class AuthLanding extends React.Component {
           title={__('Login')}
           onPress={this.login}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }

@@ -1,0 +1,145 @@
+import React from 'react';
+import {
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Button
+} from 'react-native';
+import { inject, observer } from 'mobx-react';
+
+import Icon from '../../components/Icon';
+
+import { __ } from '../../lib/I18n';
+import Theme from '../../lib/Theme';
+import { getProviders } from '../../lib/api';
+
+const styles = Theme.extend({
+  fullname: {
+    fontSize: 16,
+    color: '#1F2D3D',
+    marginBottom: 8
+  },
+  picture: {
+    width: 48,
+    height: 48,
+    borderRadius: 30
+  }
+});
+
+export default @inject('store') @observer
+class ProvidersList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const { route, store } = props;
+
+    const filters = {
+      category: route.params.category,
+      search: '',
+      quality: null,
+      price: null,
+      totalCount: null,
+      orderBy: null,
+      distance: null
+    };
+
+    this.state = {
+      filters,
+      providers: getProviders(filters),
+      loading: false
+    };
+
+    store.drawer = this.setDrawer(props);
+  }
+
+  setDrawer = (props) => {
+    const { navigation } = props;
+
+    return {
+      title: __('Found service providers'),
+      navigation,
+      type: 'back',
+      right: (
+        <TouchableOpacity
+          style={styles.center}
+          onPress={this.openFilter}
+        >
+          <Icon name="filter" />
+        </TouchableOpacity>
+      )
+    };
+  }
+
+  openFilter = () => {
+    const { navigation, store } = this.props;
+    const { filters } = this.state;
+
+    navigation.navigate('ProvidersFilter', {
+      filters,
+      onCancel: () => {
+        store.drawer = this.setDrawer(this.props);
+      },
+      callback: (f) => {
+        this.filterProviders(f);
+      }
+    });
+  }
+
+  filterProviders = async (filters) => {
+    this.setState({ loading: true });
+
+    const { store } = this.props;
+
+    const providers = await getProviders(filters);
+    store.drawer = this.setDrawer(this.props);
+
+    this.setState({ loading: false, providers, filters });
+  }
+
+  render() {
+    const { providers, loading } = this.state;
+
+    if (loading) {
+      return (
+        <View testID="ProvidersList" style={styles.container}>
+          <Text>{__('Loading...')}</Text>
+        </View>
+      );
+    }
+
+    return (
+      <View testID="ProvidersList" style={styles.container}>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+        >
+          {
+            providers.map((provider) => (
+              <View key={provider.id} style={styles.item}>
+                <View style={{ width: 64 }}>
+                  {
+                    provider.picture && (
+                      <Image
+                        style={styles.picture}
+                        source={{ uri: provider.picture }}
+                      />
+                    )
+                  }
+                </View>
+                <View>
+                  <Text style={styles.fullname}>
+                    {provider.fullname}
+                  </Text>
+                  <Text style={styles.text}>{__('Quality: %s/5', provider.ratings.quality)}</Text>
+                  <Text style={styles.text}>{__('Price: %s/5', provider.ratings.price)}</Text>
+                  <Text style={styles.text}>{__('%s ratings', provider.ratings.totalCount)}</Text>
+                </View>
+              </View>
+            ))
+          }
+        </ScrollView>
+      </View>
+    );
+  }
+}

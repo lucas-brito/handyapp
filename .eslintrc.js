@@ -17,7 +17,8 @@ module.exports = {
     'comma-dangle': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/prefer-stateless-function': 'off',
-    'max-len': 'warn'
+    'max-len': 'warn',
+    'no-nested-ternary': 'off'
   },
   globals: {
     fetch: false,

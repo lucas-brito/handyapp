@@ -4,12 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'mobx-react';
 import {
   View,
-  Text
+  Text,
+  StatusBar
 } from 'react-native';
+
+import Drawer from './components/Drawer';
 
 import { createStore, LocalStorage } from './lib/Store';
 import RootNavigation from './lib/navigation/RootNavigation';
 import { getLocaleContext, __ } from './lib/I18n';
+import { getActiveRouteName } from './lib/navigation/NavigationHelpers';
 
 getLocaleContext();
 
@@ -37,27 +41,42 @@ export default class App extends React.Component {
     this.setState({ loaded: true });
   }
 
+  onNavigationStateChange = (state) => {
+    const previousRouteName = this.currentRouteName;
+    const currentRouteName = getActiveRouteName(state);
+
+    if (previousRouteName !== currentRouteName) {
+      // store.drawer = null;
+    }
+
+    // Save the current route name for later comparision
+    this.currentRouteName = currentRouteName;
+  }
+
   render() {
     const { loaded } = this.state;
 
     return (
       <Provider store={store}>
         <>
+          <StatusBar barStyle="dark-content" />
           {
-          loaded
-            ? (
-              <NavigationContainer>
-                <RootNavigation context={() => this.context} />
-              </NavigationContainer>
-            )
-            : (
-              <View testID="loading" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>
-                  {__('Loading...')}
-                </Text>
-              </View>
-            )
-        }
+            loaded
+              ? (
+                <Drawer>
+                  <NavigationContainer ref={(c) => { this.navigation = c; }} onStateChange={this.onNavigationStateChange}>
+                    <RootNavigation context={() => this.context} />
+                  </NavigationContainer>
+                </Drawer>
+              )
+              : (
+                <View testID="loading" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                  <Text>
+                    {__('Loading...')}
+                  </Text>
+                </View>
+              )
+          }
         </>
       </Provider>
     );
