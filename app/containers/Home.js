@@ -45,13 +45,13 @@ class Home extends React.Component {
   selectServiceCategory = (category) => {
     const { navigation } = this.props;
 
-    navigation.navigate('ProvidersList', {
+    navigation.navigate('ProviderList', {
       category
     });
   }
 
   render() {
-    const serviceCategories = [
+    const serviceCategories = () => [
       { category: 'cleaning', name: __('Cleaning') },
       { category: 'gardening', name: __('Gardening') },
       { category: 'pumbling', name: __('Pumbling') },
@@ -65,11 +65,11 @@ class Home extends React.Component {
           contentInsetAdjustmentBehavior="automatic"
         >
           <View style={styles.sectionContainer}>
-            <Text style={styles.text}>Select the type of service you would like to search for. Then select the location where the service will be performed</Text>
+            <Text style={[styles.text, { textAlign: 'center' }]}>{__('Select the type of service you would like to search for. Then select the location where the service will be performed')}</Text>
           </View>
           <View style={styles.sectionContainer}>
             {
-              serviceCategories.map((service) => (
+              serviceCategories().map((service) => (
                 <TouchableOpacity key={service.category} style={[styles.button, styles.buttonContainer]} onPress={() => this.selectServiceCategory(service.category)}>
                   <Text style={styles.buttonText}>{service.name.toUpperCase()}</Text>
                 </TouchableOpacity>

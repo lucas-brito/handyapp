@@ -79,7 +79,7 @@ const styles = Theme.extend({
 });
 
 export default @inject('store') @observer
-class ProvidersFilter extends React.Component {
+class ProviderFilter extends React.Component {
   constructor(props) {
     super(props);
 
@@ -128,7 +128,7 @@ class ProvidersFilter extends React.Component {
 
   render() {
     return (
-      <SafeAreaView testID="ProvidersFilter" style={[styles.container, { height: '100%' }]}>
+      <SafeAreaView testID="ProviderFilter" style={[styles.container, { height: '100%' }]}>
         <NavBar
           left={(
             <TouchableOpacity

@@ -8,7 +8,7 @@ import { View, Text, Button } from 'react-native';
 import MainStackNavigation from './MainStackNavigation';
 import AuthStackNavigation from './AuthStackNavigation';
 
-import ProvidersFilter from '../../containers/Providers/Filter';
+import ProviderFilter from '../../containers/Provider/Filter';
 
 export default @inject('store') @observer
 class RootNavigation extends React.Component {
@@ -47,8 +47,8 @@ class RootNavigation extends React.Component {
           )
         }
         <RootStack.Screen
-          name="ProvidersFilter"
-          component={withMappedNavigationParams()(ProvidersFilter)}
+          name="ProviderFilter"
+          component={withMappedNavigationParams()(ProviderFilter)}
           options={{ headerShown: false }}
         />
       </RootStack.Navigator>

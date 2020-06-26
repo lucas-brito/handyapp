@@ -4,7 +4,8 @@ import { withMappedNavigationParams } from 'react-navigation-props-mapper';
 
 import Home from '../../containers/Home';
 import UserProfile from '../../containers/User/Profile';
-import ProvidersList from '../../containers/Providers/List';
+import ProviderList from '../../containers/Provider/List';
+import ProviderNode from '../../containers/Provider/Node';
 
 export default class MainStackNavigation extends React.Component {
   render() {
@@ -25,8 +26,13 @@ export default class MainStackNavigation extends React.Component {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="ProvidersList"
-          component={withMappedNavigationParams()(ProvidersList)}
+          name="ProviderList"
+          component={withMappedNavigationParams()(ProviderList)}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProviderNode"
+          component={withMappedNavigationParams()(ProviderNode)}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

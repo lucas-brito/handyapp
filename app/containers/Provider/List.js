@@ -4,8 +4,7 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
-  Button
+  Image
 } from 'react-native';
 import { inject, observer } from 'mobx-react';
 
@@ -29,7 +28,7 @@ const styles = Theme.extend({
 });
 
 export default @inject('store') @observer
-class ProvidersList extends React.Component {
+class ProviderList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -76,7 +75,7 @@ class ProvidersList extends React.Component {
     const { navigation, store } = this.props;
     const { filters } = this.state;
 
-    navigation.navigate('ProvidersFilter', {
+    navigation.navigate('ProviderFilter', {
       filters,
       onCancel: () => {
         store.drawer = this.setDrawer(this.props);
@@ -98,27 +97,38 @@ class ProvidersList extends React.Component {
     this.setState({ loading: false, providers, filters });
   }
 
+  onSelectProvider = (id) => {
+    const { navigation } = this.props;
+    const { filters } = this.state;
+
+    navigation.navigate('ProviderNode', {
+      id,
+      category: filters.category
+    });
+  }
+
   render() {
     const { providers, loading } = this.state;
 
     if (loading) {
       return (
-        <View testID="ProvidersList" style={styles.container}>
+        <View testID="ProviderList" style={styles.container}>
           <Text>{__('Loading...')}</Text>
         </View>
       );
     }
 
     return (
-      <View testID="ProvidersList" style={styles.container}>
+      <View testID="ProviderList" style={styles.container}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
         >
           {
             providers.map((provider) => (
-              <View key={provider.id} style={styles.item}>
-                <View style={{ width: 64 }}>
-                  {
+              <TouchableOpacity key={provider.id} onPress={() => this.onSelectProvider(provider.id)}>
+                <View style={styles.item}>
+                  <View style={{ width: 64 }}>
+                    {
                     provider.picture && (
                       <Image
                         style={styles.picture}
@@ -126,16 +136,18 @@ class ProvidersList extends React.Component {
                       />
                     )
                   }
+                  </View>
+                  <View>
+                    <Text style={styles.fullname}>
+                      {provider.fullname}
+                    </Text>
+                    <Text style={styles.text}>{__('Quality: %s/5', provider.ratings.quality)}</Text>
+                    <Text style={styles.text}>{__('Price: %s/5', provider.ratings.price)}</Text>
+                    <Text style={styles.text}>{__('%s ratings', provider.ratings.totalCount)}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text style={styles.fullname}>
-                    {provider.fullname}
-                  </Text>
-                  <Text style={styles.text}>{__('Quality: %s/5', provider.ratings.quality)}</Text>
-                  <Text style={styles.text}>{__('Price: %s/5', provider.ratings.price)}</Text>
-                  <Text style={styles.text}>{__('%s ratings', provider.ratings.totalCount)}</Text>
-                </View>
-              </View>
+              </TouchableOpacity>
+
             ))
           }
         </ScrollView>
