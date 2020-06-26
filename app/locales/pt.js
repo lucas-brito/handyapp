@@ -27,7 +27,7 @@ module.exports = {
   'Price: %s/5': 'Preço: %s/5',
   '%s ratings': '%s avaliações',
   'Provider Profile': 'Perfil do Prestador',
-  'This user was never rated for this type of work before, be the first to hire': 'Esse usuário não foi avaliado por esse tipo de serviço antes, seja o primeiro a contratar',
+  'This user was never rated for this type of work before, be the first to rate!': 'Esse usuário ainda não foi avaliado por esse tipo de serviço, seja o primeiro a avaliar!',
   'Quality: %s': 'Qualidade: %s',
   'Price: %s': 'Preço: %s',
   'Member since %s': 'Membro desde %s',

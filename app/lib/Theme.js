@@ -50,7 +50,7 @@ const defaults = {
   },
   text: {
     fontSize: 14,
-    color: '#969FAA'
+    color: '#969faa'
   },
   sectionContainer: {
     marginTop: 32,

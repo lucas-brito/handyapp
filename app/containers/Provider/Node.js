@@ -71,8 +71,11 @@ class ProviderNode extends React.Component {
   }
 
   renderEmptyRatings = () => (
-    <View>
-      <Text>{__('This user was never rated for this type of work before, be the first to hire')}</Text>
+    <View style={{
+      borderRadius: 4, backgroundColor: '#e2ecf7', marginTop: 8, paddingHorizontal: 24, paddingVertical: 12
+    }}
+    >
+      <Text style={{ fontSize: 12 }}>{__('This user was never rated for this type of work before, be the first to rate!')}</Text>
     </View>
   )
 

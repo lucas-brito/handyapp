@@ -156,7 +156,7 @@ class ProviderFilter extends React.Component {
                     {filter.name}
                   </Text>
                 </View>
-                <View style={{ flexDirection: 'row' }}>
+                <ScrollView horizontal style={{ flexDirection: 'row' }}>
                   {
                     filter.options.map((option) => (
                       <TouchableOpacity
@@ -168,7 +168,7 @@ class ProviderFilter extends React.Component {
                       </TouchableOpacity>
                     ))
                   }
-                </View>
+                </ScrollView>
               </View>
             ))
           }
