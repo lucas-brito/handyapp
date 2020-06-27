@@ -7,6 +7,7 @@ import { inject, observer } from 'mobx-react';
 
 import Icon from './Icon';
 import NavBar from './NavBar';
+import Picture from './Picture';
 
 import Theme from '../lib/Theme';
 import { __ } from '../lib/I18n';
@@ -18,6 +19,10 @@ const drawerStyles = {
 };
 
 const styles = Theme.extend({
+  drawerItem: {
+    paddingHorizontal: 24,
+    paddingVertical: 18
+  }
 });
 
 export default @inject('store') @observer
@@ -37,19 +42,102 @@ class DrawerComponent extends React.Component {
     navigation.goBack();
   }
 
+  openUserProfile = () => {
+    const { store } = this.props;
+    const { navigation } = store.drawer;
+
+    this.closeControlPanel();
+    navigation.navigate('UserProfile');
+  }
+
+  onSelectDrawerItem = (screen) => {
+    if (!screen) return;
+
+    const { store } = this.props;
+    const { navigation } = store.drawer;
+
+    this.closeControlPanel();
+    navigation.navigate(screen);
+  }
+
+  renderDrawerItem = ({
+    value, title, screen, onPress
+  }, selected) => (
+    <TouchableOpacity
+      key={value}
+      onPress={onPress || (() => this.onSelectDrawerItem(screen))}
+      style={styles.drawerItem}
+    >
+      <View>
+        <Text style={[{ fontSize: 16, color: '#c0ccda' }, selected && { color: '#fff', fontWeight: 'bold' }]}>
+          {title}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  )
+
+  renderDrawerContent = () => {
+    const { store } = this.props;
+    const { user, drawer } = store;
+    const { fullname, picture } = user;
+    const { screen } = drawer;
+
+    const screenOptions = [
+      { value: 'home', title: __('Home'), screen: 'Home' },
+      { value: 'messages', title: __('Messages'), screen: 'UserMessages' },
+      { value: 'history', title: __('History'), screen: 'UserHistory' }
+    ];
+
+    const advancedOptions = [
+      { value: 'settings', title: __('Settings'), screen: 'Settings' },
+      { value: 'rate', title: __('Rate us!') }
+    ];
+
+    return (
+      <SafeAreaView style={{ backgroundColor: '#1e2d3e' }}>
+        <View style={{
+          paddingHorizontal: 24, paddingVertical: 48, backgroundColor: '#263445'
+        }}
+        >
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={this.openUserProfile}>
+            <Picture
+              style={styles.picture}
+              source={{ uri: picture }}
+            />
+            <View style={{ marginLeft: 12 }}>
+              <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' }}>
+                {fullname}
+              </Text>
+              <Text style={{ marginTop: 4, color: '#fff', fontSize: 12 }}>
+                {__('Edit account')}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={{ height: '100%', backgroundColor: '#1e2d3e', flexShrink: 1 }}>
+          <View style={{
+            borderBottomWidth: Theme.hairlineWidth,
+            borderBottomColor: '#c0ccda',
+            paddingBottom: 48
+          }}
+          >
+            {screenOptions.map((option) => this.renderDrawerItem(option, option.value === screen))}
+          </View>
+          <View>
+            {advancedOptions.map((option) => this.renderDrawerItem(option, option.value === screen))}
+          </View>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   render() {
     const { store, children } = this.props;
 
     return (
       <Drawer
         ref={(ref) => { this.drawer = ref; }}
-        content={(
-          <SafeAreaView>
-            <Text>
-              Drawer
-            </Text>
-          </SafeAreaView>
-          )}
+        content={!!store.drawer && this.renderDrawerContent()}
         type="overlay"
         tapToClose
         openDrawerOffset={(viewport) => viewport.width - 300} // 20% gap on the right side of drawer

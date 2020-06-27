@@ -50,7 +50,7 @@ const defaults = {
   },
   text: {
     fontSize: 14,
-    color: '#969FAA'
+    color: '#969faa'
   },
   sectionContainer: {
     marginTop: 32,
@@ -71,7 +71,12 @@ const defaults = {
     paddingHorizontal: 24,
     borderBottomWidth: 1,
     borderBottomColor: '#f1f3f5',
-  }
+  },
+  picture: {
+    width: 60,
+    height: 60,
+    borderRadius: 40
+  },
 };
 
 exports.hairlineWidth = StyleSheet.hairlineWidth;
