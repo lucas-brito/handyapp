@@ -353,3 +353,14 @@ const ratings = [
   }
 ];
 exports.ratings = ratings;
+
+const services = [
+  {
+    id: 1,
+    providerId: 1,
+    category: 'gardening',
+    clientId: 21,
+    created: '2020-02-25 11:00:00'
+  }
+];
+exports.services = services;

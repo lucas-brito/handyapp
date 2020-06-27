@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import { users, ratings } from './TestStorage';
+import _, { filter } from 'lodash';
+import { users, ratings, services } from './TestStorage';
 
 const getProviders = ({
   category, search, quality, price, totalCount, orderBy, distance
@@ -47,3 +47,20 @@ const getRatings = (filterBy, id, category) => _.orderBy(ratings
   .filter((rating) => !category || rating.category === category)
   .map((rating) => ({ ...rating, provider: getUser(rating.providerId), client: getUser(rating.clientId) })), 'created', 'desc');
 exports.getRatings = getRatings;
+
+const getLastService = (filterBy, id) => {
+  const userServices = _.orderBy(services
+    .filter((service) => service[filterBy] === id), 'created', 'desc');
+
+  if (userServices) {
+    const service = userServices[0];
+
+    service.provider = getUser(service.providerId);
+    service.client = getUser(service.clientId);
+
+    return service;
+  }
+
+  return null;
+};
+exports.getLastService = getLastService;

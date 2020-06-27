@@ -45,6 +45,12 @@ class Settings extends React.Component {
     await LocalStorage.removeItem('token');
   }
 
+  onRedirect = (screen) => {
+    const { navigation } = this.props;
+
+    navigation.navigate(screen);
+  }
+
   render() {
     return (
       <View testID="Settings" style={styles.container}>
@@ -61,6 +67,20 @@ class Settings extends React.Component {
                   {__('Notifications')}
                 </Text>
                 <Text style={styles.text}>{__('Manage push, email and more')}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => this.onRedirect('Help')}>
+            <View style={[styles.item, { paddingHorizontal: 8 }]}>
+              <View style={{ width: 48, justifyContent: 'center', alignItems: 'center' }}>
+                <Icon name="question-circle" size={16} />
+              </View>
+              <View style={{ padding: 8 }}>
+                <Text style={styles.title}>
+                  {__('Help')}
+                </Text>
+                <Text style={styles.text}>{__('Having problems? We give you a handy')}</Text>
               </View>
             </View>
           </TouchableOpacity>
