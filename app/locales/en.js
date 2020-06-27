@@ -10,6 +10,22 @@ module.exports = {
   // 'Edit account': '', // new
   // 'Auth Landing': '', // new
   // 'Login': '', // new
+  // 'Problems with another service': '', // new
+  // 'When should I pay for the service?': '', // new
+  // 'Is the service provider trustworthy': '', // new
+  // 'Can\'t find what I need': '', // new
+  // 'How do I pay for a service?': '', // new
+  // 'I payed for a service but the status is still pending': '', // new
+  // 'I want to become a service provider': '', // new
+  // 'Other questions': '', // new
+  // 'Problems with the service quality': '', // new
+  // 'The service provider never showed up': '', // new
+  // 'More options': '', // new
+  // 'Help': '', // new
+  // 'Your last service': '', // new
+  // 'On %s': '', // new
+  // 'Problems with this service': '', // new
+  // 'Frequent questions': '', // new
   // 'Cleaning': '', // new
   // 'Gardening': '', // new
   // 'Pumbling': '', // new
@@ -44,6 +60,7 @@ module.exports = {
   // 'Ratings': '', // new
   // 'Notifications': '', // new
   // 'Manage push, email and more': '', // new
+  // 'Having problems? We give you a handy': '', // new
   // 'Security': '', // new
   // 'Check recent activity on handy': '', // new
   // 'About handy': '', // new

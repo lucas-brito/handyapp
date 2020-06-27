@@ -156,7 +156,7 @@ class ProviderFilter extends React.Component {
                     {filter.name}
                   </Text>
                 </View>
-                <ScrollView horizontal style={{ flexDirection: 'row' }}>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row' }}>
                   {
                     filter.options.map((option) => (
                       <TouchableOpacity

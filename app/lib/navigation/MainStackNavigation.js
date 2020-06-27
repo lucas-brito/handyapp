@@ -7,6 +7,7 @@ import { getUser } from '../api';
 
 import Home from '../../containers/Home';
 import Settings from '../../containers/Settings';
+import Help from '../../containers/Help';
 import UserProfile from '../../containers/User/Profile';
 import UserMessages from '../../containers/User/Messages';
 import UserHistory from '../../containers/User/History';
@@ -63,6 +64,11 @@ class MainStackNavigation extends React.Component {
         <Stack.Screen
           name="UserHistory"
           component={withMappedNavigationParams()(UserHistory)}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Help"
+          component={withMappedNavigationParams()(Help)}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
