@@ -86,7 +86,7 @@ class Settings extends React.Component {
               </View>
               <View style={{ padding: 8 }}>
                 <Text style={styles.title}>
-                  {__('About Handy')}
+                  {__('About handy')}
                 </Text>
                 <Text style={styles.text}>{__('Who we are')}</Text>
               </View>

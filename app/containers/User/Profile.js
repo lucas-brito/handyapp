@@ -4,13 +4,13 @@ import {
   View,
   Text,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Alert
 } from 'react-native';
 import { inject, observer } from 'mobx-react';
 import moment from 'moment';
 
 import Picture from '../../components/Picture';
-import Icon from '../../components/Icon';
 
 import { __ } from '../../lib/I18n';
 import Theme from '../../lib/Theme';
@@ -53,6 +53,9 @@ const styles = Theme.extend({
   },
   buttonContainer: {
     backgroundColor: '#343F4B'
+  },
+  buttonDisabled: {
+    backgroundColor: '#E6E7E9'
   }
 });
 
@@ -69,48 +72,32 @@ class UserProfile extends React.Component {
       email
     };
 
-    store.drawer = this.setDrawer(props, this.state);
-  }
-
-  setDrawer = (props, state) => {
-    const { navigation, store } = props;
-    const { user } = store;
-    let hasChanges;
-
-    if (state.fullname !== user.fullname
-      || state.email !== user.email) {
-      hasChanges = true;
-    }
-
-    return {
+    store.drawer = {
       title: __('Profile'),
       navigation,
-      type: 'back',
-      right: (
-        <TouchableOpacity
-          style={[styles.center, styles.button, styles.buttonContainer]}
-          onPress={this.saveChanges}
-        >
-          <Icon name="filter" />
-        </TouchableOpacity>
-      )
+      type: 'back'
     };
   }
 
-  saveChanges = () => {
+  saveChanges = (hasChanges) => {
+    if (!hasChanges) {
+      return !Alert.alert(
+        __('There are no changes'),
+        __('Make changes before saving your new account data'),
+        [
+          { text: __('Ok') },
+        ]
+      );
+    }
     const { store } = this.props;
     const { fullname, email } = this.state;
 
-    store.fullname = fullname;
-    store.email = email;
+    store.user.fullname = fullname;
+    store.user.email = email;
   }
 
   onChange = (type, value) => {
-    this.setState({ [type]: value }, () => {
-      const { store } = this.props;
-
-      store.drawer = this.setDrawer(this.props, this.state);
-    });
+    this.setState({ [type]: value });
   }
 
   render() {
@@ -119,6 +106,13 @@ class UserProfile extends React.Component {
       created, picture
     } = store.user;
     const { fullname, email, focus } = this.state;
+
+    let hasChanges;
+
+    if (fullname !== store.user.fullname
+      || email !== store.user.email) {
+      hasChanges = true;
+    }
 
     return (
       <View testID="UserProfile" style={styles.container}>
@@ -161,6 +155,14 @@ class UserProfile extends React.Component {
             </View>
           </View>
         </ScrollView>
+        <View style={styles.sectionContainer}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonContainer, !hasChanges && styles.buttonDisabled]}
+            onPress={() => this.saveChanges(hasChanges)}
+          >
+            <Text style={styles.buttonText}>{__('Save').toUpperCase()}</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

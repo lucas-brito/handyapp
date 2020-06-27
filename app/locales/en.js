@@ -5,6 +5,8 @@ module.exports = {
   // 'Home': '', // new
   // 'Messages': '', // new
   // 'History': '', // new
+  // 'Settings': '', // new
+  // 'Rate us!': '', // new
   // 'Edit account': '', // new
   // 'Auth Landing': '', // new
   // 'Login': '', // new
@@ -40,5 +42,18 @@ module.exports = {
   // '%s people rated this user': '', // new
   // 'Send me a message': '', // new
   // 'Ratings': '', // new
-  // 'User Profile': '', // new
+  // 'Notifications': '', // new
+  // 'Manage push, email and more': '', // new
+  // 'Security': '', // new
+  // 'Check recent activity on handy': '', // new
+  // 'About handy': '', // new
+  // 'Who we are': '', // new
+  // 'Logout': '', // new
+  // 'Your account data will be stored': '', // new
+  // 'Profile': '', // new
+  // 'There are no changes': '', // new
+  // 'Make changes before saving your new account data': '', // new
+  // 'Ok': '', // new
+  // 'Email': '', // new
+  // 'Save': '', // new
 };
