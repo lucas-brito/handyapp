@@ -2,9 +2,12 @@
 /* eslint quote-props: ["error", "always"] */
 module.exports = {
   'Loading...': 'Carregando...',
+  'Home': 'Início',
+  'Messages': 'Mensagens',
+  'History': 'Histórico',
+  'Edit account': 'Editar conta',
   'Auth Landing': 'Aut Inicio',
   'Login': 'Login',
-  'Home': 'Início',
   'Cleaning': 'Limpeza',
   'Gardening': 'Jardinagem',
   'Pumbling': 'Encanamento',

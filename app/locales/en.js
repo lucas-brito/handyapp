@@ -2,9 +2,12 @@
 /* eslint quote-props: ["error", "always"] */
 module.exports = {
   // 'Loading...': '', // new
+  // 'Home': '', // new
+  // 'Messages': '', // new
+  // 'History': '', // new
+  // 'Edit account': '', // new
   // 'Auth Landing': '', // new
   // 'Login': '', // new
-  // 'Home': '', // new
   // 'Cleaning': '', // new
   // 'Gardening': '', // new
   // 'Pumbling': '', // new
@@ -27,7 +30,7 @@ module.exports = {
   // 'Price: %s/5': '', // new
   // '%s ratings': '', // new
   // 'Provider Profile': '', // new
-  // 'This user was never rated for this type of work before, be the first to hire': '', // new
+  // 'This user was never rated for this type of work before, be the first to rate!': '', // new
   // 'Quality: %s': '', // new
   // 'Price: %s': '', // new
   // 'Member since %s': '', // new

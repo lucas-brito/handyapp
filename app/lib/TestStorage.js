@@ -280,22 +280,22 @@ const users = [
     created: '2020-01-13 10:00:00'
   },
   {
-    id: 21, type: null, fullname: 'Lucas Brito', email: 'l172608@dac.unicamp.br', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://developer.apple.com/swift/images/swift-og.png', accessToken: 'ABCDE'
+    id: 21, type: null, fullname: 'Lucas Brito', email: 'l172608@dac.unicamp.br', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://avatars2.githubusercontent.com/u/12075737?s=460&u=c4bef0898bf7682bf6d54b2becc6adc70b45d895&v=4', accessToken: 'ABCDE', created: '2020-06-20 10:00:00'
   },
   {
-    id: 22, type: null, fullname: 'Jonathan Dias', email: 'jd@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://s3.amazonaws.com/tinycards/image/c5b605125dd3a4685555bf56c37555ed', accessToken: 'DYFDR'
+    id: 22, type: null, fullname: 'Jonathan Dias', email: 'jd@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://s3.amazonaws.com/tinycards/image/c5b605125dd3a4685555bf56c37555ed', accessToken: 'DYFDR', created: '2020-06-20 10:00:00'
   },
   {
-    id: 23, type: null, fullname: 'Guilherme Chaves', email: 'gc@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSJTcf_WTrUtjBYRzT6SYvg0UFo4lUT_DD14g&usqp=CAU', accessToken: 'KMHUH'
+    id: 23, type: null, fullname: 'Guilherme Chaves', email: 'gc@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSJTcf_WTrUtjBYRzT6SYvg0UFo4lUT_DD14g&usqp=CAU', accessToken: 'KMHUH', created: '2020-06-20 10:00:00'
   },
   {
-    id: 24, type: null, fullname: 'Juliana Soares', email: 'js@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcStven5jKcA1zUWGMBek6WVxfAnz_-2dzRSyQ&usqp=CAU', accessToken: 'VYFDT'
+    id: 24, type: null, fullname: 'Juliana Soares', email: 'js@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcStven5jKcA1zUWGMBek6WVxfAnz_-2dzRSyQ&usqp=CAU', accessToken: 'VYFDT', created: '2020-06-20 10:00:00'
   },
   {
-    id: 25, type: null, fullname: 'Priscila Santos', email: 'ps@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://www.dclick.com.br/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', accessToken: 'SNJAD'
+    id: 25, type: null, fullname: 'Priscila Santos', email: 'ps@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://www.dclick.com.br/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', accessToken: 'SNJAD', created: '2020-06-20 10:00:00'
   },
   {
-    id: 26, type: null, fullname: 'Beatriz Akemi', email: 'ba@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://www.essencialbella.com.br/wp-content/uploads/2017/12/person-3.jpeg', accessToken: 'SNJAD'
+    id: 26, type: null, fullname: 'Beatriz Akemi', email: 'ba@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://www.essencialbella.com.br/wp-content/uploads/2017/12/person-3.jpeg', accessToken: 'SNJAD', created: '2020-06-20 10:00:00'
   },
 ];
 exports.users = users;
