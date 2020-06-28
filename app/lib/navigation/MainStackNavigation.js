@@ -13,6 +13,7 @@ import UserMessages from '../../containers/User/Messages';
 import UserHistory from '../../containers/User/History';
 import ProviderList from '../../containers/Provider/List';
 import ProviderNode from '../../containers/Provider/Node';
+import MessageThread from '../../containers/Message/Thread';
 
 export default @inject('store') @observer
 class MainStackNavigation extends React.Component {
@@ -69,6 +70,11 @@ class MainStackNavigation extends React.Component {
         <Stack.Screen
           name="Help"
           component={withMappedNavigationParams()(Help)}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MessageThread"
+          component={withMappedNavigationParams()(MessageThread)}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

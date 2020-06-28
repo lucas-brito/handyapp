@@ -1,5 +1,7 @@
 import _, { filter } from 'lodash';
-import { users, ratings, services } from './TestStorage';
+import {
+  users, ratings, services, messages
+} from './TestStorage';
 
 const getProviders = ({
   category, search, quality, price, totalCount, orderBy, distance
@@ -64,3 +66,23 @@ const getLastService = (filterBy, id) => {
   return null;
 };
 exports.getLastService = getLastService;
+
+const getServices = (filterBy, id) => _.orderBy(services
+  .filter((service) => service[filterBy] === id)
+  .map((service) => ({ ...service, provider: getUser(service.providerId), client: getUser(service.clientId) })), 'created', 'desc');
+exports.getServices = getServices;
+
+const getThreads = (filterBy, id) => _.uniqBy(_.orderBy(messages
+  .filter((message) => message[filterBy] === id), 'created', 'desc'), filterBy)
+  .map((message) => ({ ...message, provider: getUser(message.providerId), client: getUser(message.clientId) }));
+exports.getThreads = getThreads;
+
+const getThread = (providerId, clientId) => {
+  const provider = getUser(providerId);
+  const client = getUser(clientId);
+
+  return _.orderBy(messages
+    .filter((message) => message.providerId === providerId && message.clientId === clientId)
+    .map((message) => ({ ...message, provider, client })), 'created', 'asc');
+};
+exports.getThread = getThread;

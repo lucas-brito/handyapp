@@ -14,6 +14,7 @@ import Icon from '../../components/Icon';
 import { __ } from '../../lib/I18n';
 import Theme from '../../lib/Theme';
 import { getProvider, getRatings } from '../../lib/api';
+import { serviceCategories } from '../../lib/utils';
 
 const styles = Theme.extend({
   providerPicture: {
@@ -43,14 +44,6 @@ const styles = Theme.extend({
   }
 });
 
-const serviceCategories = () => [
-  { category: 'cleaning', name: __('Cleaning') },
-  { category: 'gardening', name: __('Gardening') },
-  { category: 'pumbling', name: __('Pumbling') },
-  { category: 'electricity', name: __('Electricity') },
-  { category: 'painting', name: __('Painting') },
-];
-
 export default @inject('store') @observer
 class ProviderNode extends React.Component {
   constructor(props) {
@@ -68,6 +61,15 @@ class ProviderNode extends React.Component {
       navigation,
       type: 'back'
     };
+  }
+
+  openMessageThread = (providerId, clientId) => {
+    const { navigation } = this.props;
+
+    navigation.navigate('MessageThread', {
+      providerId,
+      clientId
+    });
   }
 
   renderEmptyRatings = () => (
@@ -127,7 +129,7 @@ class ProviderNode extends React.Component {
     const {
       fullname, created, picture
     } = provider;
-    const { route } = this.props;
+    const { route, store } = this.props;
 
     return (
       <View testID="ProviderNode" style={styles.container}>
@@ -168,7 +170,10 @@ class ProviderNode extends React.Component {
             </View>
           </View>
           <View style={styles.sectionContainer}>
-            <TouchableOpacity style={[styles.button, styles.buttonContainer, { marginBottom: 0 }]}>
+            <TouchableOpacity
+              style={[styles.button, styles.buttonContainer, { marginBottom: 0 }]}
+              onPress={() => this.openMessageThread(provider.id, store.user.id)}
+            >
               <Text style={styles.buttonText}>{__('Send me a message').toUpperCase()}</Text>
             </TouchableOpacity>
           </View>

@@ -170,9 +170,21 @@ class DrawerComponent extends React.Component {
                     </TouchableOpacity>
                   )}
                 center={!!store.drawer.title && (
-                <View style={styles.center}>
-                  <Text style={styles.navBarTitle}>{store.drawer.title}</Text>
-                </View>
+                  typeof store.drawer.title === 'string'
+                    ? (
+                      <View style={styles.center}>
+                        <Text style={styles.navBarTitle}>{store.drawer.title}</Text>
+                      </View>
+                    )
+                    : (
+                      <View style={[styles.center, { flexDirection: 'row' }]}>
+                        <Picture
+                          style={[styles.picture, { width: 32, height: 32, marginRight: 12 }]}
+                          source={{ uri: store.drawer.title.picture }}
+                        />
+                        <Text style={styles.navBarTitle}>{store.drawer.title.text}</Text>
+                      </View>
+                    )
                 )}
                 right={store.drawer.right}
               />
