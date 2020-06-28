@@ -69,7 +69,7 @@ class MessageThread extends React.Component {
           <Text style={[styles.text, styles.chatText, { paddingBottom: 12 }]}>
             {content}
           </Text>
-          <Text style={[styles.text, styles.chatText, { fontSize: 12 }]}>{moment(created).format('LL HH:mm')}</Text>
+          <Text style={[styles.text, styles.chatText, { fontSize: 12 }]}>{moment(created).format('HH:mm')}</Text>
         </View>
         {!messageOwner && <View style={{ flex: 1 }} />}
       </TouchableOpacity>
