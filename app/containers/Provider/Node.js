@@ -63,6 +63,15 @@ class ProviderNode extends React.Component {
     };
   }
 
+  openMessageThread = (providerId, clientId) => {
+    const { navigation } = this.props;
+
+    navigation.navigate('MessageThread', {
+      providerId,
+      clientId
+    });
+  }
+
   renderEmptyRatings = () => (
     <View style={{
       borderRadius: 4, backgroundColor: '#e2ecf7', marginTop: 8, paddingHorizontal: 24, paddingVertical: 12
@@ -120,7 +129,7 @@ class ProviderNode extends React.Component {
     const {
       fullname, created, picture
     } = provider;
-    const { route } = this.props;
+    const { route, store } = this.props;
 
     return (
       <View testID="ProviderNode" style={styles.container}>
@@ -161,7 +170,10 @@ class ProviderNode extends React.Component {
             </View>
           </View>
           <View style={styles.sectionContainer}>
-            <TouchableOpacity style={[styles.button, styles.buttonContainer, { marginBottom: 0 }]}>
+            <TouchableOpacity
+              style={[styles.button, styles.buttonContainer, { marginBottom: 0 }]}
+              onPress={() => this.openMessageThread(provider.id, store.user.id)}
+            >
               <Text style={styles.buttonText}>{__('Send me a message').toUpperCase()}</Text>
             </TouchableOpacity>
           </View>

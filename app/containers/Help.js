@@ -117,14 +117,10 @@ class Help extends React.Component {
             <Text style={styles.sectionTitle}>{__('Your last service')}</Text>
             <View style={[styles.item, { borderBottomColor: 0, paddingBottom: 24 }]}>
               <View style={{ width: 64 }}>
-                {
-              picture && (
                 <Picture
                   style={styles.picture}
                   source={{ uri: picture }}
                 />
-              )
-            }
               </View>
               <View>
                 <Text style={styles.fullname}>

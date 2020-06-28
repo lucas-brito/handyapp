@@ -27,6 +27,9 @@ module.exports = {
   // 'Problems with this service': '', // new
   // 'Frequent questions': '', // new
   // 'Select the type of service you would like to search for. Then select the location where the service will be performed': '', // new
+  // 'Today': '', // new
+  // 'Yesterday': '', // new
+  // 'Write a message..': '', // new
   // 'Quality': '', // new
   // 'Price': '', // new
   // 'Ratings count': '', // new
@@ -66,6 +69,10 @@ module.exports = {
   // 'You had no services in the last 30 days': '', // new
   // 'Older': '', // new
   // 'You had no services before the last 30 days': '', // new
+  // 'You: ': '', // new
+  // '%s: ': '', // new
+  // 'You had no messages in the last 30 days': '', // new
+  // 'You had no messages before the last 30 days': '', // new
   // 'Profile': '', // new
   // 'There are no changes': '', // new
   // 'Make changes before saving your new account data': '', // new

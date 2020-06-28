@@ -18,7 +18,7 @@ const styles = Theme.extend({
     fontSize: 14
   },
   buttonContainer: {
-    backgroundColor: '#343F4B'
+    backgroundColor: '#343f4b'
   }
 });
 

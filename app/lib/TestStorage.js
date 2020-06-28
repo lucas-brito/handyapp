@@ -360,42 +360,238 @@ const services = [
     providerId: 1,
     category: 'gardening',
     clientId: 21,
-    created: '2020-06-25 11:00:00'
+    created: '2020-02-25 11:00:00'
   },
   {
     id: 2,
-    providerId: 2,
-    category: 'pumbling',
-    clientId: 21,
-    created: '2020-06-23 11:00:00'
-  },
-  {
-    id: 3,
-    providerId: 3,
-    category: 'cleaning',
-    clientId: 21,
-    created: '2020-06-19 11:00:00'
-  },
-  {
-    id: 4,
-    providerId: 3,
-    category: 'cleaning',
-    clientId: 21,
-    created: '2020-06-05 11:00:00'
-  },
-  {
-    id: 5,
     providerId: 1,
     category: 'gardening',
     clientId: 21,
     created: '2020-04-25 11:00:00'
   },
   {
+    id: 3,
+    providerId: 3,
+    category: 'cleaning',
+    clientId: 21,
+    created: '2020-06-05 11:00:00'
+  },
+  {
+    id: 4,
+    providerId: 3,
+    category: 'cleaning',
+    clientId: 21,
+    created: '2020-06-19 11:00:00'
+  },
+  {
+    id: 5,
+    providerId: 2,
+    category: 'pumbling',
+    clientId: 21,
+    created: '2020-06-23 11:00:00'
+  },
+  {
     id: 6,
     providerId: 1,
     category: 'gardening',
     clientId: 21,
-    created: '2020-02-25 11:00:00'
+    created: '2020-06-25 11:00:00'
   }
 ];
 exports.services = services;
+
+const messages = [
+  {
+    id: 1,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Boa tarde, seu José!',
+    created: '2020-04-24 13:55:00'
+  },
+  {
+    id: 2,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Tudo bem com o senhor?',
+    created: '2020-04-24 13:55:00'
+  },
+  {
+    id: 3,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Tudo bem sim! E por ai?',
+    created: '2020-04-24 16:31:00'
+  },
+  {
+    id: 4,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Tudo ótimo! 😃',
+    created: '2020-04-24 16:32:00'
+  },
+  {
+    id: 5,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Amanhã o senhor consegue vir dar uma geral no jardim?',
+    created: '2020-04-24 16:32:00'
+  },
+  {
+    id: 6,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Amanhã eu consigo, mas não posso ficar muito tempo porque tenho outros serviços agendados',
+    created: '2020-04-24 17:45:00'
+  },
+  {
+    id: 7,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Mas não posso ficar muito tempo porque tenho outros serviços agendados',
+    created: '2020-04-24 17:46:00'
+  },
+  {
+    id: 8,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Tá ótimo, eu só queria que você cuidasse de uma aqui pra mim que tá bem feia',
+    created: '2020-04-24 17:47:00'
+  },
+  {
+    id: 9,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Por mim pode ser amanhã no horário de sempre',
+    created: '2020-04-24 17:48:00'
+  },
+  {
+    id: 10,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Combinado para amanhã às 11h então.. pode deixar que eu levo todas as ferramentas e fica o valor de sempre',
+    created: '2020-04-24 18:00:00'
+  },
+  {
+    id: 11,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: '👍🏾👍🏾👍🏾',
+    created: '2020-04-24 18:21:00'
+  },
+  {
+    id: 12,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Bom dia! Estou saindo de um cliente em alguns minutos.. e depois estou a caminho',
+    created: '2020-04-25 10:45:00'
+  },
+  {
+    id: 13,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Boa tarde, seu José!',
+    created: '2020-06-24 13:55:00'
+  },
+  {
+    id: 14,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Tudo bem com o senhor?',
+    created: '2020-06-24 13:55:00'
+  },
+  {
+    id: 15,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Tudo bem sim! E por ai?',
+    created: '2020-06-24 16:31:00'
+  },
+  {
+    id: 16,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Tudo ótimo! 😃',
+    created: '2020-06-24 16:32:00'
+  },
+  {
+    id: 17,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Amanhã o senhor consegue vir dar uma geral no jardim?',
+    created: '2020-06-24 16:32:00'
+  },
+  {
+    id: 18,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Amanhã eu consigo, mas não posso ficar muito tempo porque tenho outros serviços agendados',
+    created: '2020-06-24 17:45:00'
+  },
+  {
+    id: 19,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Mas não posso ficar muito tempo porque tenho outros serviços agendados',
+    created: '2020-06-24 17:46:00'
+  },
+  {
+    id: 20,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Tá ótimo, eu só queria que você cuidasse de uma aqui pra mim que tá bem feia',
+    created: '2020-06-24 17:47:00'
+  },
+  {
+    id: 21,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: 'Por mim pode ser amanhã no horário de sempre',
+    created: '2020-06-24 17:48:00'
+  },
+  {
+    id: 22,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Combinado para amanhã às 11h então.. pode deixar que eu levo todas as ferramentas e fica o valor de sempre',
+    created: '2020-06-24 18:00:00'
+  },
+  {
+    id: 23,
+    providerId: 1,
+    clientId: 21,
+    userId: 21,
+    content: '👍🏾👍🏾👍🏾',
+    created: '2020-06-24 18:21:00'
+  },
+  {
+    id: 24,
+    providerId: 1,
+    clientId: 21,
+    userId: 1,
+    content: 'Bom dia! Estou saindo de um cliente em alguns minutos.. e depois estou a caminho',
+    created: '2020-06-25 10:45:00'
+  },
+];
+exports.messages = messages;
