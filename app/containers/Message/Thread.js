@@ -93,7 +93,7 @@ class MessageThread extends React.Component {
 
     return [
       !!label && (
-        <View style={styles.center}>
+        <View style={styles.center} key={label}>
           <View style={[styles.labelButton, { backgroundColor: '#343f4b' }]}>
             <Text style={{ color: '#fff', fontWeight: 'bold' }}>{label}</Text>
           </View>
@@ -142,8 +142,8 @@ class MessageThread extends React.Component {
           ref={(c) => { this.messageList = c; }}
           onContentSizeChange={() => this.messageList.scrollToEnd({ animated: false })}
           contentInsetAdjustmentBehavior="automatic"
-          style={{ marginTop: 12 }}
         >
+          <View style={{ height: 12 }} />
           {messages.map((message, i) => this.renderMessageItem(message, messages[i - 1]))}
         </ScrollView>
         {this.renderMessageForm()}
