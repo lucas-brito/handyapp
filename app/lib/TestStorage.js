@@ -23,7 +23,7 @@ const users = [
     google: null,
     facebook: null,
     twitter: null,
-    picture: 'https://miro.medium.com/max/400/1*mrOXGyIa3BlPK80peLmEbA.png',
+    picture: 'https://encanador24hs.com.br/wp-content/uploads/2013/07/dd.jpg',
     ratings: { quality: 4.5, price: 4.75, totalCount: 38 },
     created: '2020-01-13 10:00:00'
   },
@@ -37,7 +37,7 @@ const users = [
     google: null,
     facebook: null,
     twitter: null,
-    picture: 'https://secure.meetupstatic.com/photos/event/4/a/b/5/600_466219125.jpeg',
+    picture: 'https://i2.wp.com/cbdv.com.br/wp-content/uploads/2019/02/vagas-urgentes-bh-Faxineiro.jpg',
     ratings: { quality: 4.5, price: 5, totalCount: 12 },
     created: '2020-01-13 10:00:00'
   },
@@ -357,6 +357,41 @@ exports.ratings = ratings;
 const services = [
   {
     id: 1,
+    providerId: 1,
+    category: 'gardening',
+    clientId: 21,
+    created: '2020-06-25 11:00:00'
+  },
+  {
+    id: 2,
+    providerId: 2,
+    category: 'pumbling',
+    clientId: 21,
+    created: '2020-06-23 11:00:00'
+  },
+  {
+    id: 3,
+    providerId: 3,
+    category: 'cleaning',
+    clientId: 21,
+    created: '2020-06-19 11:00:00'
+  },
+  {
+    id: 4,
+    providerId: 3,
+    category: 'cleaning',
+    clientId: 21,
+    created: '2020-06-05 11:00:00'
+  },
+  {
+    id: 5,
+    providerId: 1,
+    category: 'gardening',
+    clientId: 21,
+    created: '2020-04-25 11:00:00'
+  },
+  {
+    id: 6,
     providerId: 1,
     category: 'gardening',
     clientId: 21,

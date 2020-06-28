@@ -43,17 +43,6 @@ const styles = Theme.extend({
   }
 });
 
-// const frequentQuestions = () => [
-//   __('Tenho problemas com outro serviço'),
-//   __('Em que momento devo fazer o pagamento?'),
-//   __('O prestador de serviço é confiável?'),
-//   __('Não encontro o que preciso'),
-//   __('Como faço pagar fazer o pagamento do serviço?'),
-//   __('Eu fiz o pagamento mas ainda aparece como pendente'),
-//   __('Quero me tornar um prestador de serviços'),
-//   __('Outras perguntas')
-// ];
-
 const frequentQuestions = () => [
   __('Problems with another service'),
   __('When should I pay for the service?'),
@@ -64,12 +53,6 @@ const frequentQuestions = () => [
   __('I want to become a service provider'),
   __('Other questions')
 ];
-
-// const problemsCards = () => [
-//   { icon: 'thumbs-down', content: __('Problema com a qualidade do serviço') },
-//   { icon: 'heart-broken', content: __('O prestador não veio fazer o serviço') },
-//   { icon: 'plus', content: __('Mais opções') },
-// ];
 
 const problemsCards = () => [
   { icon: 'thumbs-down', content: __('Problems with the service quality') },

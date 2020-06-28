@@ -64,3 +64,8 @@ const getLastService = (filterBy, id) => {
   return null;
 };
 exports.getLastService = getLastService;
+
+const getServices = (filterBy, id) => _.orderBy(services
+  .filter((service) => service[filterBy] === id)
+  .map((service) => ({ ...service, provider: getUser(service.providerId), client: getUser(service.clientId) })), 'created', 'desc');
+exports.getServices = getServices;

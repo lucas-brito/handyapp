@@ -14,6 +14,7 @@ import Icon from '../../components/Icon';
 import { __ } from '../../lib/I18n';
 import Theme from '../../lib/Theme';
 import { getProvider, getRatings } from '../../lib/api';
+import { serviceCategories } from '../../lib/utils';
 
 const styles = Theme.extend({
   providerPicture: {
@@ -42,14 +43,6 @@ const styles = Theme.extend({
     borderRadius: 30
   }
 });
-
-const serviceCategories = () => [
-  { category: 'cleaning', name: __('Cleaning') },
-  { category: 'gardening', name: __('Gardening') },
-  { category: 'pumbling', name: __('Pumbling') },
-  { category: 'electricity', name: __('Electricity') },
-  { category: 'painting', name: __('Painting') },
-];
 
 export default @inject('store') @observer
 class ProviderNode extends React.Component {

@@ -94,6 +94,8 @@ class UserProfile extends React.Component {
 
     store.user.fullname = fullname;
     store.user.email = email;
+
+    // add a toast with a success message
   }
 
   onChange = (type, value) => {

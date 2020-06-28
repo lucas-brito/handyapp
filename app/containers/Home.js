@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react';
 
 import { __ } from '../lib/I18n';
 import Theme from '../lib/Theme';
+import { serviceCategories } from '../lib/utils';
 
 const styles = Theme.extend({
   buttonText: {
@@ -20,14 +21,6 @@ const styles = Theme.extend({
     backgroundColor: '#343F4B'
   }
 });
-
-const serviceCategories = () => [
-  { category: 'cleaning', name: __('Cleaning') },
-  { category: 'gardening', name: __('Gardening') },
-  { category: 'pumbling', name: __('Pumbling') },
-  { category: 'electricity', name: __('Electricity') },
-  { category: 'painting', name: __('Painting') },
-];
 
 export default @inject('store') @observer
 class Home extends React.Component {
