@@ -86,3 +86,7 @@ const getThread = (providerId, clientId) => {
     .map((message) => ({ ...message, provider, client })), 'created', 'asc');
 };
 exports.getThread = getThread;
+
+const passwordAuthenticate = (email, password) => users
+  .find((user) => !!email && !!password && user.email === email && user.password === password);
+exports.passwordAuthenticate = passwordAuthenticate;
