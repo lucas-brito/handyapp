@@ -74,7 +74,7 @@ class AuthLanding extends React.Component {
     const user = passwordAuthenticate(email, password);
 
     if (!user) {
-      TinyToast.showError('Wrong email or password, please try again');
+      TinyToast.showError(__('Wrong email or password, please try again'));
       return;
     }
 
