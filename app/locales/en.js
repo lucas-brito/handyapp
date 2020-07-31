@@ -8,7 +8,10 @@ module.exports = {
   // 'Settings': '', // new
   // 'Rate us!': '', // new
   // 'Edit account': '', // new
-  // 'Auth Landing': '', // new
+  // 'Wrong email or password, please try again': '', // new
+  // 'Login to handy': '', // new
+  // 'Email': '', // new
+  // 'Password': '', // new
   // 'Login': '', // new
   // 'Problems with another service': '', // new
   // 'When should I pay for the service?': '', // new
@@ -77,7 +80,6 @@ module.exports = {
   // 'There are no changes': '', // new
   // 'Make changes before saving your new account data': '', // new
   // 'Ok': '', // new
-  // 'Email': '', // new
   // 'Save': '', // new
   // 'Cleaning': '', // new
   // 'Gardening': '', // new
