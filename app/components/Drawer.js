@@ -148,8 +148,9 @@ class DrawerComponent extends React.Component {
           main: { opacity: (2 - ratio) / 2 }
         })}
       >
-        <SafeAreaView style={{ height: '100%' }}>
-          {
+        <View style={{ height: '100%' }}>
+          <SafeAreaView>
+            {
             !!store.drawer && (
               <NavBar
                 left={store.drawer.type
@@ -190,9 +191,9 @@ class DrawerComponent extends React.Component {
               />
             )
           }
+          </SafeAreaView>
           {children}
-        </SafeAreaView>
-
+        </View>
       </Drawer>
     );
   }

@@ -8,6 +8,7 @@ import { getUser } from '../api';
 import Home from '../../containers/Home';
 import Settings from '../../containers/Settings';
 import Help from '../../containers/Help';
+import Map from '../../containers/Map';
 import UserProfile from '../../containers/User/Profile';
 import UserMessages from '../../containers/User/Messages';
 import UserHistory from '../../containers/User/History';
@@ -75,6 +76,11 @@ class MainStackNavigation extends React.Component {
         <Stack.Screen
           name="MessageThread"
           component={withMappedNavigationParams()(MessageThread)}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Map"
+          component={withMappedNavigationParams()(Map)}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

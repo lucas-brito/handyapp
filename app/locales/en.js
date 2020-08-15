@@ -30,6 +30,8 @@ module.exports = {
   // 'Problems with this service': '', // new
   // 'Frequent questions': '', // new
   // 'Select the type of service you would like to search for. Then select the location where the service will be performed': '', // new
+  // 'Select service location': '', // new
+  // 'Confirm location': '', // new
   // 'Today': '', // new
   // 'Yesterday': '', // new
   // 'Write a message..': '', // new

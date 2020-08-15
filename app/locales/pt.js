@@ -30,6 +30,8 @@ module.exports = {
   'Problems with this service': 'Problemas com este serviço',
   'Frequent questions': 'Perguntas frequentes',
   'Select the type of service you would like to search for. Then select the location where the service will be performed': 'Selecione o tipo de serviço que gostaria de buscar. Em seguida, selecione o local onde quer que o serviço seja efetuado',
+  'Select service location': 'Selecione o local do serviço',
+  'Confirm location': 'Confirmar local',
   'Today': 'Hoje',
   'Yesterday': 'Ontem',
   'Write a message..': 'Escreva uma mensagem...',

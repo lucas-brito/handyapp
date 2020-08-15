@@ -3,7 +3,8 @@ import {
   ScrollView,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import { inject, observer } from 'mobx-react';
 import moment from 'moment';
@@ -137,7 +138,7 @@ class MessageThread extends React.Component {
     const { messages } = this.state;
 
     return (
-      <View testID="MessageThread" style={styles.container}>
+      <SafeAreaView testID="MessageThread" style={styles.container}>
         <ScrollView
           ref={(c) => { this.messageList = c; }}
           onContentSizeChange={() => this.messageList.scrollToEnd({ animated: false })}
@@ -147,7 +148,7 @@ class MessageThread extends React.Component {
           {messages.map((message, i) => this.renderMessageItem(message, messages[i - 1]))}
         </ScrollView>
         {this.renderMessageForm()}
-      </View>
+      </SafeAreaView>
     );
   }
 }

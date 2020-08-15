@@ -280,7 +280,7 @@ const users = [
     created: '2020-01-13 10:00:00'
   },
   {
-    id: 21, type: null, fullname: 'Lucas Brito', email: 'l172608@dac.unicamp.br', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://avatars2.githubusercontent.com/u/12075737?s=460&u=c4bef0898bf7682bf6d54b2becc6adc70b45d895&v=4', accessToken: 'ABCDE', created: '2020-06-20 10:00:00'
+    id: 21, type: null, fullname: 'Lucas Brito', email: 'l172608@dac.unicamp.br', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://avatars2.githubusercontent.com/u/12075737?s=460&u=c4bef0898bf7682bf6d54b2becc6adc70b45d895&v=4', accessToken: '72af4194fe02fa763d98ff6a707f7be003b5ed9118b401cc1ed2ecd1fdda', created: '2020-06-20 10:00:00'
   },
   {
     id: 22, type: null, fullname: 'Jonathan Dias', email: 'jd@handy.com', password: '1234', google: null, facebook: null, twitter: null, picture: 'https://s3.amazonaws.com/tinycards/image/c5b605125dd3a4685555bf56c37555ed', accessToken: 'DYFDR', created: '2020-06-20 10:00:00'

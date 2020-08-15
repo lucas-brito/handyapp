@@ -5,7 +5,8 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
-  Alert
+  Alert,
+  SafeAreaView
 } from 'react-native';
 import { inject, observer } from 'mobx-react';
 import moment from 'moment';
@@ -117,7 +118,7 @@ class UserProfile extends React.Component {
     }
 
     return (
-      <View testID="UserProfile" style={styles.container}>
+      <SafeAreaView testID="UserProfile" style={styles.container}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
         >
@@ -165,7 +166,7 @@ class UserProfile extends React.Component {
             <Text style={styles.buttonText}>{__('Save').toUpperCase()}</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }

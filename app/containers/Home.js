@@ -39,7 +39,7 @@ class Home extends React.Component {
   selectServiceCategory = (category) => {
     const { navigation } = this.props;
 
-    navigation.navigate('ProviderList', {
+    navigation.navigate('Map', {
       category
     });
   }

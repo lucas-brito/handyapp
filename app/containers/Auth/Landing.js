@@ -13,7 +13,6 @@ import TinyToast from '../../components/Toast';
 import { __ } from '../../lib/I18n';
 import { LocalStorage } from '../../lib/Store';
 import Theme from '../../lib/Theme';
-import { passwordAuthenticate } from '../../lib/api';
 
 const styles = Theme.extend({
   labelView: {
@@ -53,7 +52,7 @@ const styles = Theme.extend({
     borderBottomWidth: 1
   }
 });
-export default @inject('store') @observer
+export default @inject('store', 'api') @observer
 class AuthLanding extends React.Component {
   constructor(props) {
     super(props);
@@ -70,19 +69,18 @@ class AuthLanding extends React.Component {
 
   login = async () => {
     const { email, password } = this.state;
+    const { api, store } = this.props;
 
-    const user = passwordAuthenticate(email, password);
+    try {
+      const user = await api.get('/authorize', { email, password });
 
-    if (!user) {
+      await LocalStorage.setItem('token', user.oauthProvider.access_token);
+
+      store.accessToken = user.oauthProvider.access_token;
+      api.accessToken = user.oauthProvider.access_token;
+    } catch (e) {
       TinyToast.showError(__('Wrong email or password, please try again'));
-      return;
     }
-
-    await LocalStorage.setItem('token', user.accessToken);
-
-    const { store } = this.props;
-
-    store.accessToken = user.accessToken;
   }
 
   onChange = (type, value) => {

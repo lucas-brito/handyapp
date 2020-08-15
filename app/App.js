@@ -14,10 +14,13 @@ import { createStore, LocalStorage } from './lib/Store';
 import RootNavigation from './lib/navigation/RootNavigation';
 import { getLocaleContext, __ } from './lib/I18n';
 import { getActiveRouteName } from './lib/navigation/NavigationHelpers';
+import { createAPI } from './lib/handyapi';
 
 getLocaleContext();
 
 const store = createStore();
+const api = createAPI({ url: 'http://localhost:3000' });
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +60,7 @@ export default class App extends React.Component {
     const { loaded } = this.state;
 
     return (
-      <Provider store={store}>
+      <Provider store={store} api={api}>
         <>
           <StatusBar barStyle="dark-content" />
           {
