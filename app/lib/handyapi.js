@@ -7,10 +7,13 @@ exports.createAPI = ({ accessToken, url }) => {
   api.accessToken = accessToken;
   api.url = url;
 
-  const setParams = (params = {}) => ({
-    ...params,
-    accessToken: api.accessToken
-  });
+  const setParams = (params = {}) => {
+    const newParams = params;
+
+    if (api.accessToken) newParams.accessToken = api.accessToken;
+
+    return newParams;
+  };
 
   const get = (endpoint, params = {}) => {
     const finalParams = (params === false) ? null : { params: setParams(params) };
@@ -26,28 +29,16 @@ exports.createAPI = ({ accessToken, url }) => {
   };
   api.get = get;
 
-  const post = (endpoint, params = {}, header = {}) => {
+  const post = (endpoint, params = {}) => {
     const finalParams = (params === false) ? null : { params: setParams(params) };
-    let data;
-
-    if (header['Content-Type'] === 'multipart/form-data') {
-      data = new FormData();
-      Object.keys(finalParams.params).forEach((param) => {
-        data.append(param, finalParams.params[param]);
-      });
-    } else {
-      data = finalParams.params;
-    }
-    console.log(`POST ${endpoint}`, data);
-
+    console.log(`POST ${endpoint}`, finalParams);
     return axios({
       method: 'post',
-      url: `${api.url}/${endpoint}`,
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        ...header
+      url: `${api.url}${endpoint}`,
+      headers: {
+        'Content-Type': 'application/json'
       },
-      data
+      data: finalParams.params
     }).then((response) => response.data)
       .catch((error) => {
         console.log('post error', error);

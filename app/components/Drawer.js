@@ -137,7 +137,7 @@ class DrawerComponent extends React.Component {
     return (
       <Drawer
         ref={(ref) => { this.drawer = ref; }}
-        content={!!store.drawer && this.renderDrawerContent()}
+        content={!!store.drawer && !store.drawer.invisible && this.renderDrawerContent()}
         type="overlay"
         tapToClose
         openDrawerOffset={(viewport) => viewport.width - 300} // 20% gap on the right side of drawer

@@ -3,7 +3,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 // DEFAULT STORE STRUCTURE
 const defaultStore = {
-  accessToken: null
+  accessToken: null,
+  user: null
 };
 
 // FUNCTION TO CREATE A DEFAULT STORE

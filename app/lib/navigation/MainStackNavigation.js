@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { withMappedNavigationParams } from 'react-navigation-props-mapper';
 import { inject, observer } from 'mobx-react';
 
-import { getUser } from '../api';
+import TinyToast from '../../components/Toast';
 
 import Home from '../../containers/Home';
 import Settings from '../../containers/Settings';
@@ -16,17 +16,32 @@ import ProviderList from '../../containers/Provider/List';
 import ProviderNode from '../../containers/Provider/Node';
 import MessageThread from '../../containers/Message/Thread';
 
-export default @inject('store') @observer
+import { __ } from '../I18n';
+
+export default @inject('store', 'api') @observer
 class MainStackNavigation extends React.Component {
-  constructor(props) {
-    super(props);
+  async componentDidMount() {
+    const { store, api } = this.props;
 
-    const { store } = props;
+    if (store.user) return;
 
-    store.user = getUser(null, store.accessToken);
+    try {
+      const { user } = await api.get('/user');
+
+      store.user = user;
+    } catch (e) {
+      TinyToast.showError(__('Sorry, something went wrong. Please login again.'));
+
+      store.accessToken = null;
+      api.accessToken = null;
+    }
   }
 
   render() {
+    const { store } = this.props;
+
+    if (!store.user) return null;
+
     const Stack = createStackNavigator();
 
     return (

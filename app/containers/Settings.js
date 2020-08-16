@@ -21,7 +21,7 @@ const styles = Theme.extend({
   }
 });
 
-export default @inject('store') @observer
+export default @inject('store', 'api') @observer
 class Settings extends React.Component {
   constructor(props) {
     super(props);
@@ -36,13 +36,14 @@ class Settings extends React.Component {
   }
 
   logout = async () => {
-    const { store } = this.props;
+    const { store, api } = this.props;
 
     Object.keys(store).forEach((i) => {
       if (store[i]) store[i] = defaultStore[i];
     });
 
     await LocalStorage.removeItem('token');
+    api.accessToken = null;
   }
 
   onRedirect = (screen) => {

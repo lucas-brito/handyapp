@@ -40,6 +40,7 @@ export default class App extends React.Component {
     const accessToken = stores[0][1];
 
     store.accessToken = accessToken;
+    api.accessToken = accessToken;
 
     this.setState({ loaded: true });
   }
