@@ -26,6 +26,16 @@ const styles = Theme.extend({
     width: '100%',
     flex: 1,
     justifyContent: 'space-between'
+  },
+  navBar: {
+    paddingHorizontal: 32,
+    paddingVertical: 24,
+    backgroundColor: '#fff',
+    borderBottomColor: '#e9ecef',
+    borderBottomWidth: 1,
+    justifyContent: 'flex-end',
+    flexDirection: 'row',
+    height: 64
   }
 });
 export default @inject('store', 'api') @observer
@@ -44,9 +54,26 @@ class AuthLanding extends React.Component {
     navigation.navigate(screen);
   }
 
+  openAdvancedSettings = () => {
+    const { navigation, store } = this.props;
+
+    navigation.navigate('AdvancedSettings', {
+      onClose: () => {
+        store.drawer = null;
+      }
+    });
+  }
+
   render() {
     return (
       <SafeAreaView testID="landing" style={styles.screenContainer}>
+        <View style={styles.navBar}>
+          <TouchableOpacity
+            onPress={this.openAdvancedSettings}
+          >
+            <Icon name="ellipsis-v" size={16} />
+          </TouchableOpacity>
+        </View>
         <View style={[styles.sectionContainer, { alignSelf: 'center' }]}>
           <Text style={{ fontSize: 28, fontWeight: 'bold' }}>{__('Welcome to Handy!')}</Text>
         </View>

@@ -104,7 +104,7 @@ class ProviderFilter extends React.Component {
   submit = () => {
     const { navigation, route } = this.props;
     const { callback } = route.params;
-    console.log(this.setState);
+
     callback(this.state);
     navigation.goBack();
   }

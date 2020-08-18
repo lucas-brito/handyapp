@@ -3,12 +3,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { withMappedNavigationParams } from 'react-navigation-props-mapper';
 
 import { inject, observer } from 'mobx-react';
-import { View, Text, Button } from 'react-native';
 
 import MainStackNavigation from './MainStackNavigation';
 import AuthStackNavigation from './AuthStackNavigation';
 
 import ProviderFilter from '../../containers/Provider/Filter';
+import AdvancedSettings from '../../containers/AdvancedSettings';
 
 export default @inject('store') @observer
 class RootNavigation extends React.Component {
@@ -16,12 +16,6 @@ class RootNavigation extends React.Component {
     const { store } = this.props;
 
     const RootStack = createStackNavigator();
-    const ModalScreen = ({ navigation, route }) => (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 30 }}>This is a modal!</Text>
-        <Button onPress={() => { console.warn(route); navigation.goBack(); }} title="Dismiss" />
-      </View>
-    );
 
     return (
       <RootStack.Navigator
@@ -49,6 +43,11 @@ class RootNavigation extends React.Component {
         <RootStack.Screen
           name="ProviderFilter"
           component={withMappedNavigationParams()(ProviderFilter)}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="AdvancedSettings"
+          component={withMappedNavigationParams()(AdvancedSettings)}
           options={{ headerShown: false }}
         />
       </RootStack.Navigator>

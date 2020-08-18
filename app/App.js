@@ -5,7 +5,8 @@ import { Provider } from 'mobx-react';
 import {
   View,
   Text,
-  StatusBar
+  StatusBar,
+  Platform
 } from 'react-native';
 
 import Drawer from './components/Drawer';
@@ -19,7 +20,7 @@ import { createAPI } from './lib/handyapi';
 getLocaleContext();
 
 const store = createStore();
-const api = createAPI({ url: 'http://localhost:3000' });
+const api = createAPI({ url: Platform.OS === 'ios' ? 'http://localhost:3000' : 'http://10.0.2.2:3000' });
 
 export default class App extends React.Component {
   constructor(props) {

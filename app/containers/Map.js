@@ -70,7 +70,7 @@ class Map extends React.Component {
     const { location } = this.state;
 
     return (
-      <View testID="Map" style={[styles.container, styles.mapContainer, { backgroundColor: 'red' }]}>
+      <View testID="Map" style={[styles.container, styles.mapContainer]}>
         <MapView
           style={styles.map}
           initialRegion={{

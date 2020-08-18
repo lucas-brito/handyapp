@@ -4,9 +4,13 @@ import {
   Text,
   SafeAreaView,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet,
+  Platform
 } from 'react-native';
 import { inject, observer } from 'mobx-react';
+import MapView, { Marker, Circle } from 'react-native-maps';
+import { Picker } from '@react-native-community/picker';
 
 import TinyToast from '../../components/Toast';
 
@@ -14,6 +18,18 @@ import { __ } from '../../lib/I18n';
 import Theme from '../../lib/Theme';
 import { serviceCategories } from '../../lib/utils';
 import { LocalStorage } from '../../lib/Store';
+
+const defaultRadius = 20000;
+const defaultLatitude = -22.81787;
+const defaultLongitude = -47.06845;
+
+const radiusOptions = () => [
+  { label: __('%s Km', 10), value: 10000 },
+  { label: __('%s Km', 20), value: 20000 },
+  { label: __('%s Km', 30), value: 30000 },
+  { label: __('%s Km', 40), value: 40000 },
+  { label: __('%s Km', 50), value: 50000 }
+];
 
 const styles = Theme.extend({
   labelView: {
@@ -57,6 +73,15 @@ const styles = Theme.extend({
     borderBottomColor: '#b51515',
     color: '#b51515'
   },
+  mapContainer: {
+    flex: 1,
+    height: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject
+  },
 });
 export default @inject('store', 'api') @observer
 class AuthSignup extends React.Component {
@@ -68,6 +93,9 @@ class AuthSignup extends React.Component {
     this.state = {
       provider: null,
       job: null,
+      latitude: null,
+      longitude: null,
+      radius: null,
       email: '',
       fullname: '',
       username: '',
@@ -78,7 +106,7 @@ class AuthSignup extends React.Component {
     };
 
     store.drawer = {
-      title: __('Signup in handy'),
+      title: __('Sign up for handy'),
       type: 'back',
       onPress: this.goBack,
       invisible: true
@@ -94,9 +122,9 @@ class AuthSignup extends React.Component {
       navigation.goBack();
     } else if (step === 1) {
       this.setState({ provider: null, step: 0 });
-    } else if (step === 2 && provider) {
-      this.setState({ step: 1 });
-    } else if (step === 2) {
+    } else if (step === 3 && provider) {
+      this.setState({ step: 2 });
+    } else if (step === 3) {
       this.setState({ step: 0 });
     } else {
       this.setState({ step: step - 1 });
@@ -108,26 +136,37 @@ class AuthSignup extends React.Component {
       step,
       provider,
       job,
+      latitude,
+      longitude,
+      radius,
       email,
       fullname,
       username,
       password
     } = this.state;
 
-    if (step !== 3) {
+    if (step !== 4) {
       this.setState({ step: step + 1 });
     } else {
       const { api, store } = this.props;
 
       try {
-        const user = await api.post('/users', {
+        const params = {
           provider,
           job,
           email,
           fullname,
           username,
           password
-        });
+        };
+
+        if (provider) {
+          params.latitude = latitude;
+          params.longitude = longitude;
+          params.radius = radius;
+        }
+
+        const user = await api.post('/users', params);
 
         await LocalStorage.setItem('token', user.oauthProvider.access_token);
 
@@ -148,7 +187,7 @@ class AuthSignup extends React.Component {
     <View style={styles.sectionContainer}>
       <Text style={[styles.text, { textAlign: 'center' }]}>{__('Are you going to be a customer or a provider?')}</Text>
       <View style={styles.sectionContainer}>
-        <TouchableOpacity style={[styles.button, styles.buttonContainer]} onPress={() => this.setState({ provider: false, step: 2 })}>
+        <TouchableOpacity style={[styles.button, styles.buttonContainer]} onPress={() => this.setState({ provider: false, step: 3 })}>
           <Text style={styles.buttonText}>{__('Customer').toUpperCase()}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.buttonContainer]} onPress={() => this.setState({ provider: true, step: 1 })}>
@@ -172,6 +211,56 @@ class AuthSignup extends React.Component {
       </View>
     </View>
   )
+
+  changeMarkerCoordinate = ({ latitude, longitude }) => {
+    this.setState({ latitude, longitude });
+  }
+
+  renderMapScreen = () => {
+    const { latitude, longitude, radius } = this.state;
+    const location = {
+      latitude: latitude || defaultLatitude,
+      longitude: longitude || defaultLongitude,
+    };
+
+    return (
+      <View style={styles.container}>
+        <View style={{ padding: 24 }}>
+          <Text style={[styles.text, { textAlign: 'center', }]}>{__('Select location and range where you will provide your services')}</Text>
+          <Picker
+            selectedValue={radius || defaultRadius}
+            style={{ height: Platform.OS === 'ios' ? 200 : 30, width: '100%' }}
+            onValueChange={(itemValue) => this.setState({ radius: itemValue })}
+            mode="dropdown"
+          >
+            {radiusOptions().map(({ label, value }) => <Picker.Item key={value} label={label} value={value} />)}
+          </Picker>
+        </View>
+        <View style={styles.mapContainer}>
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              ...location,
+              latitudeDelta: 0.6,
+              longitudeDelta: 0.6,
+            }}
+            onRegionChange={this.changeMarkerCoordinate}
+          >
+            <Marker
+              draggable
+              coordinate={location}
+            />
+            <Circle
+              center={location}
+              radius={radius || defaultRadius}
+              fillColor="#e04d5b61"
+              strokeColor="#e04d5b"
+            />
+          </MapView>
+        </View>
+      </View>
+    );
+  }
 
   checkUsername = async () => {
     const { api } = this.props;
@@ -306,7 +395,7 @@ class AuthSignup extends React.Component {
   }
 
   render() {
-    const { step, errors } = this.state;
+    const { step } = this.state;
     let view = this.renderTypeScreen();
     let button = null;
 
@@ -319,8 +408,20 @@ class AuthSignup extends React.Component {
     if (step === 1) {
       view = this.renderJobScreen();
     } else if (step === 2) {
-      view = this.renderUserScreen();
+      view = this.renderMapScreen();
+      button.onPress = () => {
+        const { latitude, longitude, radius } = this.state;
+        const location = {
+          latitude: latitude || defaultLatitude,
+          longitude: longitude || defaultLongitude,
+          radius: radius || defaultRadius
+        };
+
+        this.setState({ step: step + 1, ...location });
+      };
     } else if (step === 3) {
+      view = this.renderUserScreen();
+    } else if (step === 4) {
       view = this.renderPasswordScreen();
       button = {
         text: __('Finish')
@@ -335,7 +436,7 @@ class AuthSignup extends React.Component {
             <View style={styles.sectionContainer}>
               <TouchableOpacity
                 style={[styles.button, styles.buttonContainer]}
-                onPress={this.onSubmit}
+                onPress={button.onPress || this.onSubmit}
               >
                 <Text style={styles.buttonText}>{button.text.toUpperCase()}</Text>
               </TouchableOpacity>
