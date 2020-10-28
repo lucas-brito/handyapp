@@ -12,7 +12,6 @@ import Picture from '../../components/Picture';
 
 import { __ } from '../../lib/I18n';
 import Theme from '../../lib/Theme';
-import { getThreads } from '../../lib/api';
 
 const styles = Theme.extend({
   fullname: {
@@ -33,7 +32,7 @@ const styles = Theme.extend({
   }
 });
 
-export default @inject('store') @observer
+export default @inject('store', 'api') @observer
 class UserMessages extends React.Component {
   constructor(props) {
     super(props);
@@ -47,8 +46,16 @@ class UserMessages extends React.Component {
     };
 
     this.state = {
-      messages: getThreads(store.user.type === 'provider' ? 'providerId' : 'clientId', store.user.id)
+      messages: []
     };
+  }
+
+  componentDidMount() {
+    const { api } = this.props;
+
+    api.get('/conversations').then((data) => {
+      this.setState({ messages: data });
+    });
   }
 
   openMessageThread = (providerId, clientId) => {
@@ -61,10 +68,10 @@ class UserMessages extends React.Component {
   }
 
   renderMessageItem = ({
-    id, created, provider, client, content, userId
+    id, created, provider, client, content, user_id: userId
   }) => {
     const { store } = this.props;
-    const user = store.user.type === 'provider' ? client : provider;
+    const user = store.user.provider ? client : provider;
     const { picture, fullname } = user;
 
     return (
@@ -95,8 +102,8 @@ class UserMessages extends React.Component {
 
   render() {
     const { messages } = this.state;
-    const last30Days = messages.filter((service) => moment().diff(service.created, 'days') <= 30);
-    const olderThan30Days = messages.filter((service) => moment().diff(service.created, 'days') > 30);
+    const last30Days = messages.filter((message) => moment().diff(message.created, 'days') <= 30);
+    const olderThan30Days = messages.filter((message) => moment().diff(message.created, 'days') > 30);
 
     return (
       <View testID="UserMessages" style={styles.container}>

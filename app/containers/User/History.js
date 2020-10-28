@@ -48,7 +48,7 @@ class UserHistory extends React.Component {
     };
 
     this.state = {
-      services: getServices(store.user.type === 'provider' ? 'providerId' : 'clientId', store.user.id)
+      services: getServices( store.user.provider ? 'providerId' : 'clientId', store.user.id)
     };
   }
 
@@ -56,7 +56,7 @@ class UserHistory extends React.Component {
     id, created, provider, client, category
   }) => {
     const { store } = this.props;
-    const user = store.user.type === 'provider' ? client : provider;
+    const user =  store.user.provider ? client : provider;
     const { picture, fullname } = user;
 
     return (

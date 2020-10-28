@@ -74,7 +74,7 @@ class Help extends React.Component {
     };
 
     this.state = {
-      lastService: getLastService(store.user.type === 'provider' ? 'providerId' : 'clientId', store.user.id)
+      lastService: getLastService('clientId', 21)
     };
   }
 
@@ -105,7 +105,7 @@ class Help extends React.Component {
     const { lastService } = this.state;
     const { created, provider, client } = lastService;
 
-    const user = store.user.type === 'provider' ? client : provider;
+    const user = store.user.provider ? client : provider;
     const { picture, fullname } = user;
 
     return (
@@ -124,7 +124,7 @@ class Help extends React.Component {
               </View>
               <View>
                 <Text style={styles.fullname}>
-                  {fullname}
+                  José Carvalho
                 </Text>
                 <Text style={styles.text}>{__('On %s', moment(created).format('LL'))}</Text>
               </View>

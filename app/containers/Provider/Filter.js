@@ -22,9 +22,9 @@ const orderByOptions = [
 ];
 
 const distanceOptions = [
-  { value: 5, name: __('less than %s Km', 5) },
-  { value: 10, name: __('less than %s Km', 10) },
-  { value: 20, name: __('less than %s Km', 20) }
+  { value: 5000, name: __('less than %s Km', 5) },
+  { value: 10000, name: __('less than %s Km', 10) },
+  { value: 20000, name: __('less than %s Km', 20) }
 ];
 
 const qualityOptions = [

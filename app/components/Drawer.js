@@ -79,14 +79,14 @@ class DrawerComponent extends React.Component {
   renderDrawerContent = () => {
     const { store } = this.props;
     const { user, drawer } = store;
-    const { fullname, picture } = user;
+    const { provider, fullname, picture } = user;
     const { screen } = drawer;
 
-    const screenOptions = [
-      { value: 'home', title: __('Home'), screen: 'Home' },
+    let screenOptions = provider ? [] : [{ value: 'home', title: __('Home'), screen: 'Home' }];
+    screenOptions = screenOptions.concat([
       { value: 'messages', title: __('Messages'), screen: 'UserMessages' },
       { value: 'history', title: __('History'), screen: 'UserHistory' }
-    ];
+    ]);
 
     const advancedOptions = [
       { value: 'settings', title: __('Settings'), screen: 'Settings' },

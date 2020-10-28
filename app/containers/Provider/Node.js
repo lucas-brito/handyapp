@@ -10,10 +10,10 @@ import { inject, observer } from 'mobx-react';
 import moment from 'moment';
 
 import Icon from '../../components/Icon';
+import Picture from '../../components/Picture';
 
 import { __ } from '../../lib/I18n';
 import Theme from '../../lib/Theme';
-import { getProvider, getRatings } from '../../lib/api';
 import { serviceCategories } from '../../lib/utils';
 
 const styles = Theme.extend({
@@ -44,7 +44,7 @@ const styles = Theme.extend({
   }
 });
 
-export default @inject('store') @observer
+export default @inject('store', 'api') @observer
 class ProviderNode extends React.Component {
   constructor(props) {
     super(props);
@@ -52,8 +52,8 @@ class ProviderNode extends React.Component {
     const { route, store, navigation } = props;
 
     this.state = {
-      provider: getProvider(route.params.id),
-      ratings: getRatings('providerId', route.params.id, route.params.category)
+      provider: route.params.provider,
+      ratings: null
     };
 
     store.drawer = {
@@ -137,14 +137,10 @@ class ProviderNode extends React.Component {
           contentInsetAdjustmentBehavior="automatic"
         >
           <View style={[styles.sectionContainer, styles.centerItems]}>
-            {
-              picture && (
-                <Image
-                  style={styles.providerPicture}
-                  source={{ uri: picture }}
-                />
-              )
-            }
+            <Picture
+              style={styles.providerPicture}
+              source={{ uri: picture }}
+            />
             <Text style={[styles.text, { fontSize: 16, fontWeight: 'bold', color: '#47525e' }]}>{fullname}</Text>
             <Text style={[styles.text, { fontWeight: 'bold', color: '#47525e' }]}>{serviceCategories().find((category) => category.category === route.params.category).name}</Text>
             <Text style={[styles.text, { fontSize: 12, color: '#47525e' }]}>{__('Member since %s', moment(created).format('LL'))}</Text>
@@ -153,20 +149,20 @@ class ProviderNode extends React.Component {
             <View style={{ paddingVertical: 4, flexDirection: 'row', justifyContent: 'space-between' }}>
               <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('Service quality')}</Text>
               <View style={{ flexDirection: 'row' }}>
-                {[1, 2, 3, 4, 5].map((rate) => <Icon key={rate} solid name="star" color={provider.ratings.quality >= rate ? '#ff9052' : '#969faa'} />)}
+                {[1, 2, 3, 4, 5].map((rate) => <Icon key={rate} solid name="star" color={provider.ratings?.quality && provider.ratings.quality >= rate ? '#ff9052' : '#969faa'} />)}
               </View>
             </View>
             <View style={{ paddingVertical: 4, flexDirection: 'row', justifyContent: 'space-between' }}>
               <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('Price accessibility')}</Text>
               <View style={{ flexDirection: 'row' }}>
-                {[1, 2, 3, 4, 5].map((rate) => <Icon key={rate} solid name="star" color={provider.ratings.price >= rate ? '#ff9052' : '#969faa'} />)}
+                {[1, 2, 3, 4, 5].map((rate) => <Icon key={rate} solid name="star" color={provider.ratings?.price && provider.ratings.price >= rate ? '#ff9052' : '#969faa'} />)}
               </View>
             </View>
             <View style={{ paddingVertical: 4 }}>
-              <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('This user made %s services', Math.round(provider.ratings.totalCount * 1.2))}</Text>
+              <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('This user made %s services', (provider.ratings?.totalCount && Math.round(provider.ratings.totalCount * 1.2)) || 0)}</Text>
             </View>
             <View style={{ paddingVertical: 4 }}>
-              <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('%s people rated this user', provider.ratings.totalCount)}</Text>
+              <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('%s people rated this user', provider.ratings?.totalCount || 0)}</Text>
             </View>
           </View>
           <View style={styles.sectionContainer}>
@@ -180,7 +176,7 @@ class ProviderNode extends React.Component {
           <View style={styles.sectionContainer}>
             <Text style={[styles.text, { fontSize: 12, fontWeight: '500', color: '#47525e' }]}>{__('Ratings')}</Text>
             {
-              !ratings.length
+              !(ratings && ratings.length)
                 ? this.renderEmptyRatings()
                 : ratings.map((rating) => this.renderRating(rating))
             }

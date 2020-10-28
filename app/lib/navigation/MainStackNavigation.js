@@ -46,7 +46,7 @@ class MainStackNavigation extends React.Component {
 
     return (
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName={store.user.provider ? 'UserMessages' : 'Home'}
       >
         <Stack.Screen
           name="Home"
